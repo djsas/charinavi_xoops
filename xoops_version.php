@@ -27,6 +27,8 @@ $modversion['onInstall'] = 'include/oninstall.inc.php';
 /// Templates
 $modversion['templates'][1]['file'] = 'charinavi_register.html';
 $modversion['templates'][1]['description'] = 'ボランティア団体登録ページ。';
+$modversion['templates'][2]['file'] = 'charinavi_exchange.html';
+$modversion['templates'][2]['description'] = 'チャリコインの換金ページ。';
 
 // Blocks
 $modversion['blocks'][1]['file'] = 'charinavi_menu.php';

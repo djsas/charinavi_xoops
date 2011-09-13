@@ -1,0 +1,22 @@
+<{if $block.mode == "volunteer"}>
+
+<table cellspacing="0">
+	<tr><td id="usermenu">
+		<a href="<{$xoops_url}>/modules/charinavi/exchange.php"><{$block.language.menu_exchange}></a>
+	</td></tr>
+</table>
+
+<{elseif $block.mode == "common"}>
+
+<table cellspacing="0">
+	<tr><td id="usermenu">
+		<a href="<{$xoops_url}>/modules/charinavi/exchange.php"><{$block.language.menu_exchange}></a>
+		<a href="<{$xoops_url}>/modules/charinavi/register.php"><{$block.language.menu_register}></a>
+	</td></tr>
+</table>
+
+<{else}>
+
+You don't login.
+
+<{/if}>
