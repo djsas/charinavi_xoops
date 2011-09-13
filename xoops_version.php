@@ -37,4 +37,11 @@ $modversion['blocks'][1]['description'] = _MI_NIMGSEARCH_BLOCK1_DESCRIPTION;
 $modversion['blocks'][1]['show_func'] = "b_charinavi_menu_show";
 $modversion['blocks'][1]['template'] =  'charinavi_block_menu.html';
 
-?>
+// Sql file
+$modversion['sqlfile']['mysql'] = "sql/mysql.sql";
+
+// Tables
+$modversion['tables'][0] = "charinavi_log";
+$modversion['tables'][1] = "charinavi_personal";
+
+// D.S.G.

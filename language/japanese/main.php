@@ -17,3 +17,5 @@ define("_MD_CHARINAVI_EXCHANGE_TITLE", "チャリコインの購入");
 define("_MD_CHARINAVI_EXCHANGE_DESCRIPTION", "1円に対して、チャリコイン1枚と換金します。");
 define("_MD_CHARINAVI_EXCHANGE_MSG_FORM", "枚のチャリコインと換金します。");
 define("_MD_CHARINAVI_EXCHANGE_SUBMIT", "実行");
+define("_MD_CHARINAVI_EXCHANGED_MSG", "枚のチャリコインと換金しました。");
+define("_MD_CHARINAVI_EXCHANGED_ERROR", "不正な換金処理です。");
