@@ -7,7 +7,7 @@ CREATE TABLE charinavi_log (
 	uid INT( 10 ) NOT NULL ,
 	eventtype VARCHAR( 20 ) NOT NULL ,
 	amount INT( 10 ) ,
-	to_uid INT( 10 ) ,
+	to_id INT( 10 ) ,
 	time TIMESTAMP NOT NULL ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
