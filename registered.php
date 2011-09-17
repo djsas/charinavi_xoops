@@ -5,17 +5,30 @@ include(XOOPS_ROOT_PATH.'/header.php');
 if(isset($_POST["submit"]) && $_POST["submit"]){
 	global $xoopsDB, $xoopsUser;
 	
-	//入力内容をDBに保存
-	
-	//ボランティア団体のグループに追加
 	$uid = $xoopsUser->uid();
-	$sql = "SELECT groupid FROM ".$xoopsDB->prefix("groups")." WHERE name = 'volunteer';";
+	$myts =& MyTextSanitizer::getInstance();
+
+	//入力内容をDBに保存	
+	$name = $myts->makeTareaData4Save($_POST["name"]);
+	$post = $myts->makeTboxData4Save($_POST["post"]);
+	$address = $myts->makeTareaData4Save($_POST["address"]);
+	$phone = $myts->makeTboxData4Save($_POST["phone"]);
+	$fax = $myts->makeTboxData4Save($_POST["fax"]);
+	$description = $myts->makeTareaData4Save($_POST["description"]);
+	$sql = sprintf("INSERT INTO %s(uid, name, post, address, phone, fax, description) VALUES(%s, '%s', '%s', '%s', '%s', '%s', '%s');",
+		$xoopsDB->prefix("charinavi_volunteer"), $uid, $name, $post, $address, $phone, $fax, $description);
 	$res = $xoopsDB->query($sql);
-	$row = $xoopsDB->fetchArray($res);
-	$gid = $row["groupid"];
-	addUserToXoopsGroup($gid, $uid);
-	
-	print _MD_CHARINAVI_MSG_REGISTERED;
+	if($res){
+		//ボランティア団体のグループに追加
+		$sql = "SELECT groupid FROM ".$xoopsDB->prefix("groups")." WHERE name = 'volunteer';";
+		$res = $xoopsDB->query($sql);
+		$row = $xoopsDB->fetchArray($res);
+		$gid = $row["groupid"];
+		addUserToXoopsGroup($gid, $uid);
+		print _MD_CHARINAVI_MSG_REGISTERED;
+	}else{
+		print _MD_CHARINAVI_REGISTERED_ERROR;
+	}	
 }
 
 include(XOOPS_ROOT_PATH.'/footer.php');

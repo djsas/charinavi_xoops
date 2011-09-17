@@ -29,15 +29,27 @@ $modversion['templates'][1]['file'] = 'charinavi_register.html';
 $modversion['templates'][1]['description'] = 'ボランティア団体登録ページ。';
 $modversion['templates'][2]['file'] = 'charinavi_exchange.html';
 $modversion['templates'][2]['description'] = 'チャリコインの換金ページ。';
-$modversion['templates'][2]['file'] = 'charinavi_addactivity.html';
-$modversion['templates'][2]['description'] = '寄付を募る活動の登録ページ。';
+$modversion['templates'][3]['file'] = 'charinavi_addactivity.html';
+$modversion['templates'][3]['description'] = '寄付を募る活動の登録ページ。';
+$modversion['templates'][4]['file'] = 'charinavi_activity.html';
+$modversion['templates'][4]['description'] = 'ボランティア活動の紹介と寄付をするページ。';
 
 // Blocks
 $modversion['blocks'][1]['file'] = 'charinavi_menu.php';
-$modversion['blocks'][1]['name'] = _MI_NIMGSEARCH_BLOCK1_TITLE;
-$modversion['blocks'][1]['description'] = _MI_NIMGSEARCH_BLOCK1_DESCRIPTION;
+$modversion['blocks'][1]['name'] = _MI_CHARINAVI_BLOCK1_TITLE;
+$modversion['blocks'][1]['description'] = _MI_CHARINAVI_BLOCK1_DESCRIPTION;
 $modversion['blocks'][1]['show_func'] = "b_charinavi_menu_show";
 $modversion['blocks'][1]['template'] =  'charinavi_block_menu.html';
+$modversion['blocks'][2]['file'] = 'charinavi_vmenu.php';
+$modversion['blocks'][2]['name'] = _MI_CHARINAVI_BLOCK2_TITLE;
+$modversion['blocks'][2]['description'] = _MI_CHARINAVI_BLOCK2_DESCRIPTION;
+$modversion['blocks'][2]['show_func'] = "b_charinavi_vmenu_show";
+$modversion['blocks'][2]['template'] =  'charinavi_block_vmenu.html';
+$modversion['blocks'][3]['file'] = 'charinavi_new.php';
+$modversion['blocks'][3]['name'] = _MI_CHARINAVI_BLOCK3_TITLE;
+$modversion['blocks'][3]['description'] = _MI_CHARINAVI_BLOCK3_DESCRIPTION;
+$modversion['blocks'][3]['show_func'] = "b_charinavi_new_show";
+$modversion['blocks'][3]['template'] =  'charinavi_block_new.html';
 
 // Sql file
 $modversion['sqlfile']['mysql'] = "sql/mysql.sql";
@@ -47,5 +59,6 @@ $modversion['tables'][0] = "charinavi_log";
 $modversion['tables'][1] = "charinavi_personal";
 $modversion['tables'][2] = "charinavi_addactivity";
 $modversion['tables'][3] = "charinavi_tags";
+$modversion['tables'][4] = "charinavi_volunteer";
 
 // D.S.G.

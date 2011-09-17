@@ -4,7 +4,7 @@
 
 CREATE TABLE charinavi_activity (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
-	uid INT( 10 ) NOT NULL ,
+	vid INT( 10 ) NOT NULL ,
 	name TEXT NOT NULL ,
 	description TEXT NOT NULL ,
 	tags TEXT ,
@@ -33,3 +33,14 @@ CREATE TABLE charinavi_tags (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_volunteer (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	uid INT( 10 ) NOT NULL ,
+	name TEXT NOT NULL ,
+	post VARCHAR( 10 ) NOT NULL ,
+	address TEXT NOT NULL ,
+	phone VARCHAR( 15 ) NOT NULL ,
+	fax VARCHAR( 15 ) NOT NULL ,
+	description TEXT NOT NULL ,	
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;

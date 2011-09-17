@@ -1,7 +1,7 @@
 <?php
 include_once(XOOPS_ROOT_PATH.'/modules/charinavi/include/functions.php');
 
-function b_charinavi_menu_show(){
+function b_charinavi_vmenu_show(){
 	global $xoopsDB, $xoopsUser;
 	if(is_object($xoopsUser)){  //ログインしている
 		$uid = $xoopsUser->uid();
@@ -11,9 +11,7 @@ function b_charinavi_menu_show(){
 	}
 	
 	//言語の取得
-	$block['language']['menu_register'] = _MB_CHARINAVI_MENU_REGISTER;
-	$block['language']['menu_exchange'] = _MB_CHARINAVI_MENU_EXCHANGE;
-	$block['language']['menu_donation'] = _MB_CHARINAVI_MENU_DONATION;
+	$block['language']['vmenu_addactivity'] = _MB_CHARINAVI_VMENU_ADDACTIVITY;
 	
 	return $block;
 }

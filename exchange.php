@@ -26,7 +26,7 @@ $body->assign("exchange_title", _MD_CHARINAVI_EXCHANGE_TITLE);
 $body->assign("exchange_description", _MD_CHARINAVI_EXCHANGE_DESCRIPTION);
 $body->assign("exchange_msg_form", _MD_CHARINAVI_EXCHANGE_MSG_FORM);
 $body->assign("exchange_submit", _MD_CHARINAVI_EXCHANGE_SUBMIT);
-echo $body->fetch( "db:charinavi_exchange.html" );
+echo $body->fetch("db:charinavi_exchange.html");
 
 include(XOOPS_ROOT_PATH.'/footer.php');
 
