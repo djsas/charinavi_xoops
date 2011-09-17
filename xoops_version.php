@@ -29,6 +29,8 @@ $modversion['templates'][1]['file'] = 'charinavi_register.html';
 $modversion['templates'][1]['description'] = 'ボランティア団体登録ページ。';
 $modversion['templates'][2]['file'] = 'charinavi_exchange.html';
 $modversion['templates'][2]['description'] = 'チャリコインの換金ページ。';
+$modversion['templates'][2]['file'] = 'charinavi_addactivity.html';
+$modversion['templates'][2]['description'] = '寄付を募る活動の登録ページ。';
 
 // Blocks
 $modversion['blocks'][1]['file'] = 'charinavi_menu.php';
@@ -43,5 +45,7 @@ $modversion['sqlfile']['mysql'] = "sql/mysql.sql";
 // Tables
 $modversion['tables'][0] = "charinavi_log";
 $modversion['tables'][1] = "charinavi_personal";
+$modversion['tables'][2] = "charinavi_addactivity";
+$modversion['tables'][3] = "charinavi_tags";
 
 // D.S.G.
