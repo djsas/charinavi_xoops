@@ -54,6 +54,27 @@ function getVolunteerName($vid){
 }
 
 /**
+ * ログを作成する。
+ * @param int $uid ユーザID。
+ * @param string $eventtype イベントタイプ。
+ * @param int $amount 寄付額などの数量
+ * @return int 生成されたログID。
+ */
+function insertLog($uid, $eventtype, $amount, $to_id=false){
+	global $xoopsDB;
+	if($to_id === false){
+		$sql = sprintf("INSERT INTO %s(uid, eventtype, amount, time) VALUES(%s, '%s', %s, '%s');",
+			$xoopsDB->prefix("charinavi_log"), $uid, $eventtype, $amount, date("Y-m-d H:i:s"));
+	}else{
+		$sql = sprintf("INSERT INTO %s(uid, eventtype, amount, to_id, time) VALUES(%s, '%s', %s, %s, '%s');",
+			$xoopsDB->prefix("charinavi_log"), $uid, $eventtype, $amount, $id, date("Y-m-d H:i:s"));
+	}
+	$res = $xoopsDB->queryF($sql);
+	$id = $xoopsDB->getInsertId();
+	return $id;
+}
+
+/**
  * ボランティア団体として登録されているユーザかどうか判定する。
  * @param int $uid ユーザID。
  * @return bool ボランティア団体であればtrue。でなければ、false。

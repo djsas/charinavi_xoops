@@ -16,9 +16,12 @@ $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = 0;
 $modversion['image'] = "logo.gif";
 
-//Admin things
-$modversion['hasAdmin'] = 0;
 $modversion['hasMain'] = 1;
+
+//Admin things
+$modversion['hasAdmin'] = 1;
+$modversion['adminindex'] = "admin/index.php"; // 管理用スクリプトの場所
+$modversion['adminmenu'] = "admin/menu.php";
 
 $modversion['onInstall'] = 'include/oninstall.inc.php'; 
 //$modversion['onUpdate'] = 'include/onupdate.inc.php';
@@ -60,5 +63,7 @@ $modversion['tables'][1] = "charinavi_personal";
 $modversion['tables'][2] = "charinavi_addactivity";
 $modversion['tables'][3] = "charinavi_tags";
 $modversion['tables'][4] = "charinavi_volunteer";
+$modversion['tables'][5] = "charinavi_category";
+
 
 // D.S.G.

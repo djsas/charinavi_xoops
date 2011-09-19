@@ -44,3 +44,7 @@ define("_MD_CHARINAVI_ACTIVITY_MSG", "この活動に寄付をしますか？");
 define("_MD_CHARINAVI_ACTIVITY_UNIT", "円");
 define("_MD_CHARINAVI_ACTIVITY_SUBMIT", "寄付");
 define("_MD_CHARINAVI_ACTIVITY_ERROR", "指定のIDに該当するボランティア活動はありません。");
+
+//寄付処理
+define("_MD_CHARINAVI_DONATED_COMPLETED", "寄付の手続きが完了しました。");
+define("_MD_CHARINAVI_DONATED_ERROR", "不正な寄付手続きの処理です。");

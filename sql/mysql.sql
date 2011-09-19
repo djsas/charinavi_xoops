@@ -11,6 +11,13 @@ CREATE TABLE charinavi_activity (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_category (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	name TEXT NOT NULL ,
+	image BLOB ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
 CREATE TABLE charinavi_log (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	uid INT( 10 ) NOT NULL ,
