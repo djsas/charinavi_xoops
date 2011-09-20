@@ -14,7 +14,8 @@ CREATE TABLE charinavi_activity (
 CREATE TABLE charinavi_category (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,
-	image BLOB ,
+	image MEDIUMBLOB ,
+	imagetype VARCHAR( 10 ) ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
