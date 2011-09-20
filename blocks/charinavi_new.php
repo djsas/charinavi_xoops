@@ -10,6 +10,20 @@ function b_charinavi_new_show(){
 	while($row=$xoopsDB->fetchArray($res)){
 		$block["activity_name"][$i] = sprintf('<a href="%s/modules/charinavi/activity.php?id=%s">%s</a>', XOOPS_URL, $row["id"], $myts->makeTareaData4Show($row["name"]));
 		//$block["activity_description"][$i] = $myts->makeTareaData4Show($row["description"]);
+		
+		$block["activity_image"][$i] = false;
+		if($row["category_id"]){
+			$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $row["category_id"]);
+			$res = $xoopsDB->query($sql);
+			$row2 = $xoopsDB->fetchArray($res);
+			if($row2){
+				$block["activity_image"][$i] = XOOPS_URL."/modules/charinavi/resizeimg.php?id=".$id;
+			}
+		}
+		if(!$block["activity_image"][$i]){
+			$block["activity_image"][$i] = XOOPS_URL."/modules/charinavi/images/noimage.jpg";
+		}
+		
 		$block["activity_tags"][$i] = "";
 		$tags = explode(",", $row["tags"]);
 		foreach($tags as $id){

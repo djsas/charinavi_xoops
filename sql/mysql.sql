@@ -7,6 +7,7 @@ CREATE TABLE charinavi_activity (
 	vid INT( 10 ) NOT NULL ,
 	name TEXT NOT NULL ,
 	description TEXT NOT NULL ,
+	category_id INT( 10 ) ,
 	tags TEXT ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
