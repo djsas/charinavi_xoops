@@ -14,7 +14,7 @@ $modversion['author'] = 'djsas';
 $modversion['help'] = "help.html";
 $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = 0;
-$modversion['image'] = "logo.gif";
+$modversion['image'] = "logo.png";
 
 $modversion['hasMain'] = 1;
 
