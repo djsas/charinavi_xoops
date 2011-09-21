@@ -3,6 +3,18 @@ require('../../mainfile.php');
 
 if(isset($_GET["id"])){
 	$id = intval($_GET["id"]);
+	if(isset($_GET["x"]) && intval($_GET["x"]) > 0){
+		$x = intval($_GET["x"]);
+	}else{
+		$x = 100;
+	}
+	if(isset($_GET["y"]) && intval($_GET["y"]) > 0){
+		$y = intval($_GET["y"]);
+	}else{
+		$y = 100;
+	}
+	
+	
 	$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
 	$res = $xoopsDB->query($sql);
 	$myts =& MyTextSanitizer::getInstance();
@@ -11,18 +23,21 @@ if(isset($_GET["id"])){
 		$img = $row["image"];
 		
 		header('Content-Type: '.$type);
-		
-		//$img = imagecreatetruecolor(200, 30);
-		//$text_color=imagecolorallocate($img, 200, 200, 200);
-		//imagestring($img, 5, 5, 5,  $row["image"], $text_color);
-		//imagepng($img, "", 100);
-		print $img;
+		$src_image = imagecreatefromstring($img);
+
+		/*
+		if($type == "image/jpeg"){
+			imagejpeg($src_image, "", 100);
+		}else if($type == "image/png"){
+			imagepng($src_image, "", 100);
+		}
 		exit();
+		*/
 		
 		$src_w = imagesx($src_image);
 		$src_h = imagesy($src_image);
-		$dst_w = "100";
-		$dst_h = "100";
+		$dst_w = $x;
+		$dst_h = $y;
 		if($src_w > $src_h){  // 横長画像の場合
 			$dst_h = $src_h * ($dst_w / $src_w);
 		}else{  // 縦長画像の場合
