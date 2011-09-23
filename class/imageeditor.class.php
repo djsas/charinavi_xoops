@@ -39,6 +39,8 @@ class ImageEditor{
 		header('Content-Type: '.$this->type);
 		if($this->type == "image/jpeg"){
 			imagejpeg($this->image, "", 100);
+		}else if($this->type == "image/gif"){
+			imagegif($this->image, "", 100);
 		}else if($this->type == "image/png"){
 			imagepng($this->image, "", 100);
 		}

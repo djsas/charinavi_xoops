@@ -15,8 +15,7 @@ CREATE TABLE charinavi_activity (
 CREATE TABLE charinavi_category (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,
-	image MEDIUMBLOB ,
-	imagetype VARCHAR( 10 ) ,
+	picture_id INT( 10 ) ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
@@ -32,8 +31,16 @@ CREATE TABLE charinavi_log (
 
 CREATE TABLE charinavi_personal (
 	uid INT( 10 ) NOT NULL ,
+	picture_id INT( 10 ) ,	
 	amount INT( 10 ) ,
 	PRIMARY KEY ( uid )
+) TYPE = MYISAM ;
+
+CREATE TABLE charinavi_pictures (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	image MEDIUMBLOB ,
+	imagetype VARCHAR( 10 ) ,
+	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
 CREATE TABLE charinavi_tags (

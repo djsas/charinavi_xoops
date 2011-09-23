@@ -48,3 +48,15 @@ define("_MD_CHARINAVI_ACTIVITY_ERROR", "指定のIDに該当するボランティア活動はあり
 //寄付処理
 define("_MD_CHARINAVI_DONATED_COMPLETED", "寄付の手続きが完了しました。");
 define("_MD_CHARINAVI_DONATED_ERROR", "不正な寄付手続きの処理です。");
+
+//個人情報の管理
+define("_MD_CHARINAVI_PERSONAL_EDIT_PHOTO", "変更したい画像を選択してください。");
+define("_MD_CHARINAVI_PERSONAL_SUBMIT_PHOTO", "送信");
+define("_MD_CHARINAVI_PERSONAL_CANCEL_PHOTO", "キャンセル");
+define("_MD_CHARINAVI_PERSONAL_COMPLETED_PHOTO", "画像を変更しました。");
+define("_MD_CHARINAVI_PERSONAL_LABEL_BALANCE", "チャリコイン残高");
+define("_MD_CHARINAVI_PERSONAL_MSG_BALANCE_LEFT", "あと");
+define("_MD_CHARINAVI_PERSONAL_MSG_BALANCE_RIGHT", "枚あります。");
+define("_MD_CHARINAVI_PERSONAL_LABEL_RANK", "ユーザランク");
+define("_MD_CHARINAVI_PERSONAL_LABEL_COMMON", "あなたは一般ユーザ(寄付支援者)として登録されています。");
+define("_MD_CHARINAVI_PERSONAL_LABEL_VOLUNTEER", "あなたはボランティア団体(寄付依頼者)として登録されています。");
