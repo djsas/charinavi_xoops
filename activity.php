@@ -3,6 +3,27 @@ require('../../mainfile.php');
 include(XOOPS_ROOT_PATH.'/header.php');
 include_once(XOOPS_ROOT_PATH.'/modules/charinavi/include/functions.php');
 
+?>
+<script type="text/javascript">
+function checkForm(){
+	var a = document.donation.amount.value;
+	if(a.match(/^[0-9]+$/)){
+		a = parseInt(a);
+		if(a > 0){
+			return true;
+		}else{
+			document.getElementById("log").innerHTML = "0以上の数字を入力してください。";
+			return false;
+		}
+	}else{
+		document.getElementById("log").innerHTML = "数字を入力してください。";
+		return false;
+	}
+}
+</script>
+<div id="log"></div>
+<?php
+
 $id = intval($_GET["id"]);
 $sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_activity"), $id);
 $res = $xoopsDB->query($sql);
@@ -20,6 +41,7 @@ if($row === false){
 	$body->assign("msg", _MD_CHARINAVI_ACTIVITY_MSG);
 	$body->assign("unit", _MD_CHARINAVI_ACTIVITY_UNIT);
 	$body->assign("submit", _MD_CHARINAVI_ACTIVITY_SUBMIT);
+	$body->assign("volunteer_id", $id);
 	echo $body->fetch("db:charinavi_activity.html");
 }
 

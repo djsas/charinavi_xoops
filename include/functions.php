@@ -67,7 +67,7 @@ function insertLog($uid, $eventtype, $amount, $to_id=false){
 			$xoopsDB->prefix("charinavi_log"), $uid, $eventtype, $amount, date("Y-m-d H:i:s"));
 	}else{
 		$sql = sprintf("INSERT INTO %s(uid, eventtype, amount, to_id, time) VALUES(%s, '%s', %s, %s, '%s');",
-			$xoopsDB->prefix("charinavi_log"), $uid, $eventtype, $amount, $id, date("Y-m-d H:i:s"));
+			$xoopsDB->prefix("charinavi_log"), $uid, $eventtype, $amount, $to_id, date("Y-m-d H:i:s"));
 	}
 	$res = $xoopsDB->queryF($sql);
 	$id = $xoopsDB->getInsertId();
