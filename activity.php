@@ -71,9 +71,19 @@ if(!$flag){
 <br />
 <!-- richtext editor //-->
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-<textarea name="editor" style="width:650px;"></textarea>
-<input type="submit" name="upload" value="<?= _MD_CHARINAVI_FORM_SUBMIT; ?>">
+<script type="text/javascript">
+bkLib.onDomLoaded(nicEditors.allTextAreas);
+
+function sendReview(){
+	//var myNicEditor = new nicEditor();
+	//myNicEditor.addInstance('editor');
+	document.review.body.value = nicEditor.findEditor('editor').getContent();
+	document.review.submit();
+}
+</script>
+<textarea name="editor" id="editor" style="width:650px;"></textarea>
+<input type="button" name="upload" value="<?= _MD_CHARINAVI_FORM_SUBMIT; ?>" onclick="sendReview();" />
+<input type="hidden" name="body" value="" />
 </form>
 
 <?php
