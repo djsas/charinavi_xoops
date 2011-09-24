@@ -43,6 +43,39 @@ if($row === false){
 	$body->assign("submit", _MD_CHARINAVI_ACTIVITY_SUBMIT);
 	$body->assign("volunteer_id", $id);
 	echo $body->fetch("db:charinavi_activity.html");
-}
+?>
 
+<h2><?= _MD_CHARINAVI_ACTIVITY_REVIEW_TITLE; ?></h2>
+<?php
+$sql = sprintf("SELECT * FROM %s WHERE activity_id = %s;", $xoopsDB->prefix("charinavi_activity_review"), $id);
+$res = $xoopsDB->query($sql);
+$flag = false;
+while($row = $xoopsDB->fetchArray($res)){
+	$flag = true;
+}
+if(!$flag){
+	print _MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING;
+	print _MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND;
+} ?>
+
+<form name="review" method="POST" action="svr/uploadReview.php">
+<!-- star rating //-->
+<script src="3rdparty/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="3rdparty/star-rating/jquery.rating.js" type="text/javascript"></script>
+<link rel="stylesheet" href="3rdparty/star-rating/jquery.rating.css" type="text/css" />
+<input name="star" type="radio" class="star" value="1" />
+<input name="star" type="radio" class="star" value="2" />
+<input name="star" type="radio" class="star" value="3" />
+<input name="star" type="radio" class="star" value="4" />
+<input name="star" type="radio" class="star" value="5" />
+<br />
+<!-- richtext editor //-->
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<textarea name="editor" style="width:650px;"></textarea>
+<input type="submit" name="upload" value="<?= _MD_CHARINAVI_FORM_SUBMIT; ?>">
+</form>
+
+<?php
+}
 include(XOOPS_ROOT_PATH.'/footer.php');

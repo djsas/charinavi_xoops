@@ -12,6 +12,18 @@ CREATE TABLE charinavi_activity (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_activity_review (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	activity_id INT( 10 ) NOT NULL ,
+	uid INT( 10 ) NOT NULL ,
+	title TEXT NOT NULL ,
+	review TEXT NOT NULL ,
+	star TINYINT( 1 ) DEFAULT '0' NOT NULL ,
+	created_date TIMESTAMP NOT NULL ,
+	modified_date TIMESTAMP NOT NULL ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
 CREATE TABLE charinavi_category (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,

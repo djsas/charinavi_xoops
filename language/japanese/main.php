@@ -2,6 +2,7 @@
 //全ページで使用
 define("_MD_CHARINAVI_ACCESS_ERROR", "このエリアにアクセスする権限がありません。");
 define("_MD_CHARINAVI_FORMINPUT_ERROR", "入力内容が不正です。");
+define("_MD_CHARINAVI_FORM_SUBMIT", "送信");
 
 //ボランティア団体登録ページ
 define("_MD_CHARINAVI_REGISTER_TITLE", "ボランティア団体新規登録");
@@ -44,6 +45,9 @@ define("_MD_CHARINAVI_ACTIVITY_MSG", "この活動に寄付をしますか？");
 define("_MD_CHARINAVI_ACTIVITY_UNIT", "円");
 define("_MD_CHARINAVI_ACTIVITY_SUBMIT", "寄付");
 define("_MD_CHARINAVI_ACTIVITY_ERROR", "指定のIDに該当するボランティア活動はありません。");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_TITLE", "レビュー");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING", "このボランティア活動に対するレビューはありません。");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND", "最初のレビューを書いて見ませんか。");
 
 //寄付処理
 define("_MD_CHARINAVI_DONATED_COMPLETED", "寄付の手続きが完了しました。");
