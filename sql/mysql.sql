@@ -16,7 +16,7 @@ CREATE TABLE charinavi_activity_review (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	activity_id INT( 10 ) NOT NULL ,
 	uid INT( 10 ) NOT NULL ,
-	title TEXT NOT NULL ,
+	title TEXT ,
 	review TEXT NOT NULL ,
 	star TINYINT( 1 ) DEFAULT '0' NOT NULL ,
 	created_date TIMESTAMP NOT NULL ,

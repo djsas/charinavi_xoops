@@ -46,8 +46,11 @@ define("_MD_CHARINAVI_ACTIVITY_UNIT", "円");
 define("_MD_CHARINAVI_ACTIVITY_SUBMIT", "寄付");
 define("_MD_CHARINAVI_ACTIVITY_ERROR", "指定のIDに該当するボランティア活動はありません。");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_TITLE", "レビュー");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_UNAME_RIGHT", "さんのレビュー");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_DATE_RIGHT", "投稿日：");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING", "このボランティア活動に対するレビューはありません。");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND", "最初のレビューを書いて見ませんか。");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_COMPLETED", "レビューを投稿しました。");
 
 //寄付処理
 define("_MD_CHARINAVI_DONATED_COMPLETED", "寄付の手続きが完了しました。");

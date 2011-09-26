@@ -47,13 +47,26 @@ if($row === false){
 
 <h2><?= _MD_CHARINAVI_ACTIVITY_REVIEW_TITLE; ?></h2>
 <?php
-$sql = sprintf("SELECT * FROM %s WHERE activity_id = %s;", $xoopsDB->prefix("charinavi_activity_review"), $id);
+$sql = sprintf("SELECT * FROM %s WHERE activity_id = %s ORDER BY id DESC;", $xoopsDB->prefix("charinavi_activity_review"), $id);
 $res = $xoopsDB->query($sql);
-$flag = false;
+$starstr = "";
 while($row = $xoopsDB->fetchArray($res)){
-	$flag = true;
-}
-if(!$flag){
+	$usr = new $xoopsUser(intval($row["uid"]));
+	$activity_id = $row["id"];
+	$starstr .= $activity_id.",".intval($row["star"]).",";
+?>
+<div><?= $usr->uname(); ?><?= _MD_CHARINAVI_ACTIVITY_REVIEW_UNAME_RIGHT; ?> (<?= _MD_CHARINAVI_ACTIVITY_REVIEW_DATE_RIGHT.$row["modified_date"]; ?>)</div>
+<span id="starspan_<?= $activity_id; ?>">
+<input name="star_<?= $activity_id; ?>" type="radio" class="star" value="1" />
+<input name="star_<?= $activity_id; ?>" type="radio" class="star" value="2" />
+<input name="star_<?= $activity_id; ?>" type="radio" class="star" value="3" />
+<input name="star_<?= $activity_id; ?>" type="radio" class="star" value="4" />
+<input name="star_<?= $activity_id; ?>" type="radio" class="star" value="5" />
+</span>
+<div><?= htmlspecialchars_decode($myts->makeTareaData4Show($row["review"])); ?></div>
+	
+<?php }
+if(!$starstr){
 	print _MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING;
 	print _MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND;
 } ?>
@@ -74,15 +87,38 @@ if(!$flag){
 <script type="text/javascript">
 bkLib.onDomLoaded(nicEditors.allTextAreas);
 
+window.onload = function(){
+	var starstr = "<?= $starstr; ?>";
+	var s = starstr.split(",");
+	for(var i=0; i<s.length; i+=2){
+		if(s[i]){
+			var selector = "#starspan_"+s[i]+" input";
+			console.log(selector);
+			$(selector).rating("select", s[i+1]);
+			$(selector).rating("readOnly", true);
+		}
+	}
+}
+
+function htmlspecialchars(ch) {
+    ch = ch.replace(/&/g,"&amp;") ;
+    ch = ch.replace(/"/g,"&quot;") ;
+    ch = ch.replace(/'/g,"&#039;") ;
+    ch = ch.replace(/</g,"&lt;") ;
+    ch = ch.replace(/>/g,"&gt;") ;
+    return ch ;
+}
 function sendReview(){
 	//var myNicEditor = new nicEditor();
 	//myNicEditor.addInstance('editor');
-	document.review.body.value = nicEditor.findEditor('editor').getContent();
+	document.review.body.value = htmlspecialchars(nicEditors.findEditor('editor').getContent());
+	//console.log(nicEditors.findEditor('editor').getContent());
 	document.review.submit();
 }
 </script>
 <textarea name="editor" id="editor" style="width:650px;"></textarea>
 <input type="button" name="upload" value="<?= _MD_CHARINAVI_FORM_SUBMIT; ?>" onclick="sendReview();" />
+<input type="hidden" name="activity_id" value="<?= $id; ?>" />
 <input type="hidden" name="body" value="" />
 </form>
 
