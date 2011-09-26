@@ -50,6 +50,7 @@ define("_MD_CHARINAVI_ACTIVITY_REVIEW_UNAME_RIGHT", "さんのレビュー");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_DATE_RIGHT", "投稿日：");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING", "このボランティア活動に対するレビューはありません。");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND", "最初のレビューを書いて見ませんか。");
+define("_MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND2", "レビューを書いて見ませんか。");
 define("_MD_CHARINAVI_ACTIVITY_REVIEW_COMPLETED", "レビューを投稿しました。");
 
 //寄付処理
