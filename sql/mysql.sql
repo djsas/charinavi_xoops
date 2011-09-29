@@ -28,6 +28,7 @@ CREATE TABLE charinavi_category (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,
 	picture_id INT( 10 ) ,
+	order INT( 10 ) DEFAULT '1' NOT NULL ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 

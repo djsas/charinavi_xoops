@@ -1,6 +1,9 @@
 <?php
 require('../../../mainfile.php');
-include_once( XOOPS_ROOT_PATH.'/include/cp_header.php' ) ;
+include_once( XOOPS_ROOT_PATH.'/include/cp_header.php' );
+include_once(XOOPS_ROOT_PATH."/modules/charinavi/class/imagemanager.class.php");
+
+$im = new ImageManager();
 
 $myts =& MyTextSanitizer::getInstance();
 if(isset($_POST["add"]) && $_POST["add"]){
@@ -39,7 +42,7 @@ function changeImage(id, type){
 }
 </script>
 <?php
-$sql = "SELECT * FROM ".$xoopsDB->prefix("charinavi_category").";";
+$sql = "SELECT * FROM ".$xoopsDB->prefix("charinavi_category")." ORDER BY id;";
 $res = $xoopsDB->query($sql);
 $flag = false;
 $html = "";
@@ -47,12 +50,7 @@ while($row = $xoopsDB->fetchArray($res)){
 	$flag = true;
 	$id = intval($row["id"]);
 	$name = $myts->makeTareaData4Show($row["name"]);
-	if($row["image"]){
-		$img = XOOPS_URL."/modules/charinavi/resizeimg.php?id=".$id."&x=70&y=70";
-		//print $img;
-	}else{
-		$img = XOOPS_URL."/modules/charinavi/images/noimage.jpg";
-	}
+	$img = $im->getUrl($row["picture_id"], 70, 70);
 	$html .= sprintf('<tr><td>%s</td><td><img src="%s" /><input type="file" name="imgfile_%s" /><input type="button" name="changeimg" value="%s" onclick="changeImage(%s, \'change\');" /></td><td><input type="button" name="delete" value="%s" onclick="changeImage(%s, \'delete\');" /></td></tr>',
 		$name, $img, $id, _MD_CHARINAVI_ADMIN_CATEGORY_CHANGEIMG_SUBMIT, $id, _MD_CHARINAVI_ADMIN_CATEGORY_DELETE_SUBMIT, $id);
 }
