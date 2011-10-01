@@ -64,10 +64,12 @@ while($row = $xoopsDB->fetchArray($res)){
 <input name="star_<?= $activity_id; ?>" type="radio" class="star" value="5" />
 </span>
 <div><?= htmlspecialchars_decode($myts->makeTareaData4Show($row["review"])); ?></div>
-<?= _MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND2; ?>
-	
+<br />
+
 <?php }
-if(!$starstr){
+if($starstr){
+	print _MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND2;
+}else{
 	print _MD_CHARINAVI_ACTIVITY_REVIEW_NOTHING;
 	print _MD_CHARINAVI_ACTIVITY_REVIEW_RECOMMEND;
 } ?>
