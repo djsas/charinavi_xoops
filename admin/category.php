@@ -17,14 +17,25 @@ xoops_cp_header();
 if(isset($_POST["id"]) && isset($_POST["type"]) && in_array($_POST["type"], array("change", "delete"))){
 	$id = intval($_POST["id"]);
 	if($_POST["type"] == "change" && is_uploaded_file($_FILES["imgfile_".$id]["tmp_name"])){
+		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
+		$res = $xoopsDB->query($sql);
+		$row = $xoopsDB->fetchArray($res);
 		$img = file_get_contents($_FILES["imgfile_".$id]["tmp_name"]);
-		//$img = base64_decode($img);
-		$img = mysql_real_escape_string($img);
-		//$img = $myts->makeTboxData4Save($img);
-		$imgtype = $myts->makeTboxData4Save($_FILES["imgfile_".$id]["type"]);
-		$sql = sprintf("UPDATE %s SET image = BINARY '%s', imagetype = '%s' WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $img, $imgtype, $id);
-		$xoopsDB->query($sql);
+		$imgtype = $_FILES["imgfile_".$id]["type"];
+		if($row["picture_id"]){
+			$im->update($row["picture_id"], $img, $imgtype);
+		}else{
+			$picture_id = $im->insert($img, $imgtype);
+			$sql = sprintf("UPDATE %s SET picture_id = %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $picture_id, $id);
+			$xoopsDB->query($sql);
+		}
 	}else if($_POST["type"] == "delete"){
+		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
+		$res = $xoopsDB->query($sql);
+		$row = $xoopsDB->fetchArray($res);
+		if($row["picture_id"]){
+			$im->delete($row["picture_id"]);
+		}
 		$sql = sprintf("DELETE FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
 		$xoopsDB->query($sql);
 	}

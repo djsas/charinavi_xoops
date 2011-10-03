@@ -3,6 +3,11 @@
 define("_MD_CHARINAVI_ACCESS_ERROR", "このエリアにアクセスする権限がありません。");
 define("_MD_CHARINAVI_FORMINPUT_ERROR", "入力内容が不正です。");
 define("_MD_CHARINAVI_FORM_SUBMIT", "送信");
+define("_MD_CHARINAVI_ERRORNUM", "エラー番号");
+
+//エラーメッセージ
+define("_MD_CHARINAVI_ERROR_401", "カテゴリ画像のinsertに失敗しました。");
+
 
 //ボランティア団体登録ページ
 define("_MD_CHARINAVI_REGISTER_TITLE", "ボランティア団体新規登録");

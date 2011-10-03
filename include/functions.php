@@ -97,4 +97,13 @@ function is_volunteer($uid){
 	return false;
 }
 
+function getErrorMsg($msg, $num){  //エラーメッセージの出力
+	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;
+}
+
 // D.S.G.
+
+
+
+
+
