@@ -63,6 +63,14 @@ class ImageManager{
 		return $xoopsDB->fetchArray($res) === false ? false : true ;
 	}
 	/**
+	 * 画像のファイルタイプか確認する
+	 * @param string $type ファイルタイプ
+	 * @return book 画像タイプならtrue
+	 */
+	public function isImageType($type){
+		return in_array($type, array("image/jpeg", "image/bmp", "image/gif", "image/png"));
+	}
+	/**
 	 * 指定したIDの画像情報を更新する
 	 * @param int $id 更新したい画像のID
 	 * @param binary $img 画像のバイナリデータ

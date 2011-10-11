@@ -16,8 +16,7 @@ xoops_cp_header();
 
 if(isset($_POST["id"]) && isset($_POST["type"]) && in_array($_POST["type"], array("change", "delete"))){
 	$id = intval($_POST["id"]);
-	$ok_imagetype = array("image/jpeg", "image/bmp", "image/gif", "image/png");
-	if($_POST["type"] == "change" && is_uploaded_file($_FILES["imgfile_".$id]["tmp_name"]) && in_array($_FILES["imgfile_".$id]["type"], $ok_imagetype)){
+	if($_POST["type"] == "change" && is_uploaded_file($_FILES["imgfile_".$id]["tmp_name"]) && $im->isImageType($_FILES["imgfile_".$id]["type"]))){
 		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
 		$res = $xoopsDB->query($sql);
 		$row = $xoopsDB->fetchArray($res);

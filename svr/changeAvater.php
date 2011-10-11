@@ -1,5 +1,9 @@
 <?php
 require('../../../mainfile.php');
+include_once(XOOPS_ROOT_PATH."/modules/charinavi/class/imagemanager.class.php");
+
+$im = new ImageManager();
+
 
 if($_POST["upload_photo"] && is_uploaded_file($_FILES["photo"]["tmp_name"])){
 	$img = file_get_contents($_FILES["photo"]["tmp_name"]);
@@ -11,13 +15,10 @@ if($_POST["upload_photo"] && is_uploaded_file($_FILES["photo"]["tmp_name"])){
 	$sql = sprintf("SELECT * FROM %s WHERE uid = %s;", $xoopsDB->prefix("charinavi_personal"), $uid);
 	$res = $xoopsDB->query($sql);
 	$row = $xoopsDB->fetchArray($res);
-	if($row["picture_id"]){
-		$sql = sprintf("UPDATE %s SET image = BINARY '%s', imagetype = '%s' WHERE id = %s;", $xoopsDB->prefix("charinavi_pictures"), $img, $imgtype, $row["picture_id"]);
-		$xoopsDB->query($sql);
+	if($row["picture_id"] && $im->isImageType($imgtype)){
+		$im->update($row["picture_id"], $img, $imgtype);
 	}else{
-		$sql = sprintf("INSERT INTO %s(image, imagetype) VALUES('%s', '%s');", $xoopsDB->prefix("charinavi_pictures"), $img, $imgtype);
-		$res = $xoopsDB->query($sql);
-		$picture_id = $xoopsDB->getInsertId();
+		$picture_id = $im->insert($img, $imgtype);
 		$sql = sprintf("UPDATE %s SET picture_id = %s WHERE uid = %s;", $xoopsDB->prefix("charinavi_personal"), $picture_id, $uid);
 		$res = $xoopsDB->query($sql);
 	}
