@@ -37,7 +37,7 @@ $modversion['templates'][3]['description'] = '寄付を募る活動の登録ページ。';
 $modversion['templates'][4]['file'] = 'charinavi_activity.html';
 $modversion['templates'][4]['description'] = 'ボランティア活動の紹介と寄付をするページ。';
 
-// Blocks
+/// Blocks
 $modversion['blocks'][1]['file'] = 'charinavi_menu.php';
 $modversion['blocks'][1]['name'] = _MI_CHARINAVI_BLOCK1_TITLE;
 $modversion['blocks'][1]['description'] = _MI_CHARINAVI_BLOCK1_DESCRIPTION;
@@ -52,7 +52,13 @@ $modversion['blocks'][3]['file'] = 'charinavi_new.php';
 $modversion['blocks'][3]['name'] = _MI_CHARINAVI_BLOCK3_TITLE;
 $modversion['blocks'][3]['description'] = _MI_CHARINAVI_BLOCK3_DESCRIPTION;
 $modversion['blocks'][3]['show_func'] = "b_charinavi_new_show";
-$modversion['blocks'][3]['template'] =  'charinavi_block_new.html';
+$modversion['blocks'][4]['template'] =  'charinavi_block_avatar.html';
+$modversion['blocks'][4]['file'] = 'charinavi_avatar.php';
+$modversion['blocks'][4]['name'] = _MI_CHARINAVI_BLOCK_AVATAR_TITLE;
+$modversion['blocks'][4]['description'] = _MI_CHARINAVI_BLOCK_AVATAR_DESCRIPTION;
+$modversion['blocks'][4]['show_func'] = "b_charinavi_avatar_show";
+$modversion['blocks'][4]['template'] =  'charinavi_block_avatar.html';
+
 
 // Sql file
 $modversion['sqlfile']['mysql'] = "sql/mysql.sql";

@@ -59,7 +59,7 @@ class ImageManager{
 	public function isExist($id){
 		global $xoopsDB;
 		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $this->table, $id);
-		$res = $xoopsDB->query($res);
+		$res = $xoopsDB->query($sql);
 		return $xoopsDB->fetchArray($res) === false ? false : true ;
 	}
 	/**
