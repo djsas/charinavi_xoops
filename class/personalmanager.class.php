@@ -22,6 +22,15 @@ class PersonalManager{
 		}
 	}
 	/**
+	 * ユーザ名を返します．
+	 * @return string ユーザ名
+	 */
+	public function getName(){
+		global $xoopsUser;
+		//return $xoopsUser->name();
+		return $xoopsUser->uname();
+	}
+	/**
 	 * 個人情報をDBから取得します．
 	 * @return void
 	 */
