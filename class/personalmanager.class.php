@@ -22,6 +22,13 @@ class PersonalManager{
 		}
 	}
 	/**
+	 * ポイント残高を返します。
+	 * @return int ポイント残高
+	 */
+	public function getAmount(){
+		return $this->amount;
+	}
+	/**
 	 * ユーザ名を返します．
 	 * @return string ユーザ名
 	 */

@@ -9,4 +9,9 @@ define('_MB_CHARINAVI_MENU_ADMIN', "管理者メニュー");
 //ボランティア団体向けメニュー
 define('_MB_CHARINAVI_VMENU_ADDACTIVITY', "寄付を募る"); 
 
+//アバターブロック
+define('_MB_CHARINAVI_AVATAR_LABEL_AMOUNT', "ポイントあります。");
+define('_MB_CHARINAVI_AVATAR_LABEL_BUYING', "今すぐ購入");
+define('_MB_CHARINAVI_AVATAR_LABEL_BUYING_DO', "購入");
+
 // D.S.G.

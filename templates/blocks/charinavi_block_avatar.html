@@ -1,4 +1,17 @@
 <{if $block.is_login == 1}>
-<img src="<{$xoops_url}>/modules/charinavi/images/loadPicture.php?id=<{$block.picture_id}>&x=70&y=70" />
+<div>
+</div><img src="<{$xoops_url}>/modules/charinavi/images/loadPicture.php?id=<{$block.picture_id}>&x=70&y=70" />
 <{$block.name}>
+</div>
+
+<div><{$block.amount}> <{$block.language.label_amount}></div>
+<div>[<a href="javascript:openBuying();"><{$block.language.label_buying}></a>]</div>
+
+<script type="text/javascript">
+function openBuying(){
+	Dialog.confirm({url: "<{$xoops_url}>/modules/charinavi/ajax/buying.php", options: {method: 'get'}}, 
+		{top: 10, width:400, height:300, className: "alphacube", okLabel: "<{$block.language.label_buying_do}>", cancelLabel:"Cancel"})
+}
+</script>
+
 <{/if}>
