@@ -9,23 +9,21 @@ function checkForm(){
 		if(a > 0){
 			return true;
 		}else{
-			document.getElementById("log").innerHTML = "<?= _MD_CHARINAVI_EXCHANGE_INTERROR ?>";
+			document.getElementById("log").innerHTML = "0以上の数字を入力してください。";
 			return false;
 		}
 	}else{
-		document.getElementById("log").innerHTML = "<?= _MD_CHARINAVI_EXCHANGE_STRINGERROR ?>";
+		document.getElementById("log").innerHTML = "数字を入力してください。";
 		return false;
 	}
 }
 </script>
-
 <div id="log"></div>
-<?php
-$body = new xoopsTpl();
-$body->assign("exchange_title", _MD_CHARINAVI_EXCHANGE_TITLE);
-$body->assign("exchange_description", _MD_CHARINAVI_EXCHANGE_DESCRIPTION);
-$body->assign("exchange_msg_form", _MD_CHARINAVI_EXCHANGE_MSG_FORM);
-$body->assign("exchange_submit", _MD_CHARINAVI_EXCHANGE_SUBMIT);
-echo $body->fetch("db:charinavi_exchange.html");
+<h2>チャリコインの購入</h2>
+1円に対して、チャリコイン1枚と換金します。
+<form name="exchange" method="POST" action="<?= XOOPS_URL ?>/modules/charinavi/exchanging.php" onsubmit="return checkForm();">
+<input type="text" name="amount" value="0" />枚のチャリコインと換金します。
+<input type="submit" name="submit" value="購入" />
+</form>
 
 // D.S.G.
