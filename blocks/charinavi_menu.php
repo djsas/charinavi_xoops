@@ -18,12 +18,13 @@ function b_charinavi_menu_show(){
 	$block['language']['menu_admin'] = _MB_CHARINAVI_MENU_ADMIN;
 	
 	$block['is_admin'] = 0;
-	$sql = sprintf("SELECT * FROM %s WHERE groupid = 1 AND uid = %s;", $xoopsDB->prefix("groups_users_link"), $uid);
-	$res = $xoopsDB->query($sql);
-	while($row = $xoopsDB->fetchArray($res)){
-		$block['is_admin'] = 1;
-	}
-	
+	if($block["mode"] != "guest"){
+		$sql = sprintf("SELECT * FROM %s WHERE groupid = 1 AND uid = %s;", $xoopsDB->prefix("groups_users_link"), $uid);
+		$res = $xoopsDB->query($sql);
+		while($row = $xoopsDB->fetchArray($res)){
+			$block['is_admin'] = 1;
+		}
+	}	
 	return $block;
 }
 
