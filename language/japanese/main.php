@@ -6,6 +6,9 @@ define("_MD_CHARINAVI_FORM_SUBMIT", "送信");
 define("_MD_CHARINAVI_ERRORNUM", "エラー番号");
 
 //エラーメッセージ
+define("_MD_CHARINAVI_ERROR_100", "ポイント購入額の取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_101", "トランザクションIDの取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_102", "このフォームはすでに1度以上送信されています。");
 define("_MD_CHARINAVI_ERROR_401", "カテゴリ画像のinsertに失敗しました。");
 
 
@@ -31,7 +34,7 @@ define("_MD_CHARINAVI_EXCHANGE_SUBMIT", "実行");
 define("_MD_CHARINAVI_EXCHANGE_INTERROR", "0以上の数字を入力してください。");
 define("_MD_CHARINAVI_EXCHANGE_STRINGERROR", "数字を入力してください。");
 
-define("_MD_CHARINAVI_EXCHANGED_MSG", "枚のチャリコインと換金しました。");
+define("_MD_CHARINAVI_EXCHANGED_MSG", "枚のチャリコインを購入しました。");
 define("_MD_CHARINAVI_EXCHANGED_ERROR", "不正な換金処理です。");
 
 //寄付を募る活動の追加ページ

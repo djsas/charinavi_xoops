@@ -70,6 +70,8 @@ $modversion['tables'][2] = "charinavi_addactivity";
 $modversion['tables'][3] = "charinavi_tags";
 $modversion['tables'][4] = "charinavi_volunteer";
 $modversion['tables'][5] = "charinavi_category";
+$modversion['tables'][6] = "charinavi_transcheck";
+
 
 
 // D.S.G.

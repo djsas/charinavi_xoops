@@ -62,6 +62,11 @@ CREATE TABLE charinavi_tags (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_transcheck (
+	transid TEXT,
+	posted TIMESTAMP
+);
+
 CREATE TABLE charinavi_volunteer (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	uid INT( 10 ) NOT NULL ,

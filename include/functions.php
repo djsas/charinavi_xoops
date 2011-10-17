@@ -97,7 +97,8 @@ function is_volunteer($uid){
 	return false;
 }
 
-function getErrorMsg($msg, $num){  //エラーメッセージの出力
+function getErrorMsg($num){  //エラーメッセージの出力
+	$msg = constant("_MD_CHARINAVI_ERROR_".$num);
 	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;
 }
 

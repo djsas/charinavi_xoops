@@ -48,7 +48,7 @@ class ImageManager{
 		$img = mysql_real_escape_string($img);
 		$type = $myts->makeTboxData4Save($type);
 		$sql = sprintf("INSERT INTO %s(image, imagetype) VALUES(BINARY '%s', '%s');", $this->table, $img, $type);
-		$res = $xoopsDB->query($sql) or die(getErrorMsg(_MD_CHARINAVI_ERROR_401, 401));
+		$res = $xoopsDB->query($sql) or die(getErrorMsg(401));
 		return $xoopsDB->getInsertId();
 	}
 	/**
