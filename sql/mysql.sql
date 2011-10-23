@@ -24,11 +24,12 @@ CREATE TABLE charinavi_activity_review (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
-CREATE TABLE charinavi_category (
+CREATE TABLE charinavi_categories (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,
-	picture_id INT( 10 ) ,
-	order INT( 10 ) DEFAULT '1' NOT NULL ,
+	idname VARCHAR( 50 ) NOT NULL ,
+ 	picture_id INT( 10 ) ,
+	order INT( 10 ) DEFAULT '0' NOT NULL ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 

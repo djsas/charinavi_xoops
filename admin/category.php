@@ -3,84 +3,70 @@ require('../../../mainfile.php');
 include_once( XOOPS_ROOT_PATH.'/include/cp_header.php' );
 include_once(XOOPS_ROOT_PATH."/modules/charinavi/class/imagemanager.class.php");
 
-$im = new ImageManager();
-
-$myts =& MyTextSanitizer::getInstance();
-if(isset($_POST["add"]) && $_POST["add"]){
-	$name = $myts->makeTboxData4Save($_POST["newcategory"]);
-	$sql = sprintf("INSERT INTO %s(name) VALUES('%s');", $xoopsDB->prefix("charinavi_category"), $name);
-	$res = $xoopsDB->query($sql);
-}
-
 xoops_cp_header();
-
-if(isset($_POST["id"]) && isset($_POST["type"]) && in_array($_POST["type"], array("change", "delete"))){
-	$id = intval($_POST["id"]);
-	if($_POST["type"] == "change" && is_uploaded_file($_FILES["imgfile_".$id]["tmp_name"]) && $im->isImageType($_FILES["imgfile_".$id]["type"])){
-		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
-		$res = $xoopsDB->query($sql);
-		$row = $xoopsDB->fetchArray($res);
-		$img = file_get_contents($_FILES["imgfile_".$id]["tmp_name"]);
-		$imgtype = $_FILES["imgfile_".$id]["type"];
-		if($row["picture_id"]){
-			$im->update($row["picture_id"], $img, $imgtype);
-		}else{
-			$picture_id = $im->insert($img, $imgtype);
-			$sql = sprintf("UPDATE %s SET picture_id = %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $picture_id, $id);
-			$xoopsDB->query($sql);
-		}
-	}else if($_POST["type"] == "delete"){
-		$sql = sprintf("SELECT * FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
-		$res = $xoopsDB->query($sql);
-		$row = $xoopsDB->fetchArray($res);
-		if($row["picture_id"]){
-			$im->delete($row["picture_id"]);
-		}
-		$sql = sprintf("DELETE FROM %s WHERE id = %s;", $xoopsDB->prefix("charinavi_category"), $id);
-		$xoopsDB->query($sql);
-	}
-}
-
 ?>
-<style type="text/css">
-td{ vertical-align :middle; }
-</style>
-<script type="text/javascript">
-function changeImage(id, type){
-	document.categories.id.value = id;
-	document.categories.type.value = type;
-	document.categories.submit();
-}
-</script>
+<link href="../3rdparty/windows_js_1.3/themes/default.css" rel="stylesheet" type="text/css"/>
+<link href="../3rdparty/windows_js_1.3/themes/alert.css" rel="stylesheet" type="text/css"/>
+<link href="../3rdparty/windows_js_1.3/themes/alphacube.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="../3rdparty/windows_js_1.3/javascripts/prototype.js"> </script>
+<script type="text/javascript" src="../3rdparty/windows_js_1.3/javascripts/effects.js"> </script>
+<script type="text/javascript" src="../3rdparty/windows_js_1.3/javascripts/window.js"> </script>
+<script type="text/javascript" src="../3rdparty/windows_js_1.3/javascripts/window_effects.js"> </script>
+<script type="text/javascript" src="../3rdparty/windows_js_1.3/javascripts/debug.js"> </script>
 <?php
-$sql = "SELECT * FROM ".$xoopsDB->prefix("charinavi_category")." ORDER BY id;";
+$sql = sprintf("SELECT * FROM %s;", $xoopsDB->prefix("charinavi_categories"));
 $res = $xoopsDB->query($sql);
-$flag = false;
 $html = "";
 while($row = $xoopsDB->fetchArray($res)){
-	$flag = true;
-	$id = intval($row["id"]);
-	$name = $myts->makeTareaData4Show($row["name"]);
-	$img = $im->getUrl($row["picture_id"], 70, 70);
-	$html .= sprintf('<tr><td>%s</td><td><img src="%s" /><input type="file" name="imgfile_%s" /><input type="button" name="changeimg" value="%s" onclick="changeImage(%s, \'change\');" /></td><td><input type="button" name="delete" value="%s" onclick="changeImage(%s, \'delete\');" /></td></tr>',
-		$name, $img, $id, _MD_CHARINAVI_ADMIN_CATEGORY_CHANGEIMG_SUBMIT, $id, _MD_CHARINAVI_ADMIN_CATEGORY_DELETE_SUBMIT, $id);
-}
-if($flag){
-	//OpenTable();
-	print '<form enctype="multipart/form-data" name="categories" method="POST" action="category.php">'
-		."<table width='100%' border='0' cellspacing='1' class='outer'>"
-		.'<tr><th>category</th><th>image</th><th></th></tr>'
-		.$html
-		."</table><input type='hidden' name='id' value='' /><input type='hidden' name='type' value='' /></form>";
-	//CloseTable();
-}else{
-	print _MD_CHARINAVI_ADMIN_CATEGORY_NONE."<br /><br />";
-}
 
+}
+if($html){
+	print "<table>\n";
+	printf("<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th>\n", 
+		_MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NAME, _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_IDNAME,
+		_MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_PICTURE, _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_ORDER,
+		_MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_BUTTONS);
+	print "</table>\n";
+}else{
+	print "<div>"._MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NONE."</div>";
+}
 ?>
-<form name="addcategory" method="POST" action="category.php">
-<?= _MD_CHARINAVI_ADMIN_CATEGORY_NEW_LABEL ?><input type="text" name="newcategory" value="" /><input type="submit" name="add" value="<?= _MD_CHARINAVI_ADMIN_CATEGORY_NEW_SUBMIT ?>" />
+<input type="button" value="<?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NEW; ?>" onclick="showNewCategoryForm();" />
+
+<div id="pwc_newcategory_form" style="display:none;">
+<form id="newcategory_form">
+<table border="1">
+<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NAME; ?></td><td><input type="text" name="name" value="" /></td>
+<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_IDNAME; ?></td><td><input type="text" name="idname" value="" /></td>
+<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_PICTURE; ?></td><td><img src="<?= XOOPS_URL; ?>/modules/charinavi/images/loadPicture.php?x=70&y=70" /><br /></td>
+<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_ORDER; ?></td><td><input type="text" name="order" value="" /></td>
+</table>
 </form>
+</div> <!-- id=pwd_newcategory_form //-->
+
+<script type="text/javascript">
+function checkNewCategoryForm(){
+	
+	return true;
+}
+function showNewCategoryForm(){
+	Dialog.confirm($('pwc_newcategory_form').innerHTML,
+		{top:10, width:400, height:300, className:"alphacube",
+		okLabel:"<?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_CREATE; ?>", cancelLabel:"Cancel",
+		onOk:function(win){
+			var res = checkNewCategoryForm();
+			if(res){
+				$("newcategory_form").action = "../svr/changeCategory.php";
+				$("newcategory_form").submit();
+			}else{
+				Windows.focusedWindow.updateHeight();
+				new Effect.Shake(Windows.focusedWindow.getId());
+				return false;
+			}			
+		}});
+}
+</script>
 
 <?php
 xoops_cp_footer();

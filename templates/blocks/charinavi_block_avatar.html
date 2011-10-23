@@ -7,7 +7,7 @@
 <div><{$block.amount}> <{$block.language.label_amount}></div>
 <div>[<a href="javascript:openBuying();"><{$block.language.label_buying}></a>]</div>
 
-<div id="exchangewindow" style="display:none;">
+<div id="pwc_exchangewindow" style="display:none;">
 <h2><{$block.language.exchange_title}></h2>
 <{$block.language.exchange_description}>
 
@@ -17,7 +17,7 @@
 <input type="hidden" id="exchangeform_url" name="url" value="" />
 </form>
 <div id="errormsg"></div>
-</div> <!-- end id=exchangewindow //-->
+</div> <!-- end id=pwc_exchangewindow //-->
 
 <script type="text/javascript">
 function checkForm(){
@@ -37,7 +37,7 @@ function checkForm(){
 	return true;
 }
 function openBuying(){
-	Dialog.confirm($('exchangewindow').innerHTML, 
+	Dialog.confirm($('pwc_exchangewindow').innerHTML, 
 		{top: 10, width:400, height:300, className: "alphacube", okLabel: "<{$block.language.label_buying_do}>", cancelLabel:"Cancel",
 		onOk: function(win){
 			var res = checkForm();
