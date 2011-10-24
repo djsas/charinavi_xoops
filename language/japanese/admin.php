@@ -16,3 +16,6 @@ define("_MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_CREATE", "追加");
 define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_ERROR_NAME", "カテゴリ名を入力してください。");
 define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_ERROR_IDNAME", "識別名はアルファベットの小文字と数字のみで指定してください。");
 define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_ERROR_ORDER", "0以上の数字を入力してください。");
+define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_COMPLETED", "0以上の数字を入力してください。");
+define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_INCOMPLETED", "0以上の数字を入力してください。");
+

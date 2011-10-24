@@ -35,11 +35,11 @@ if($html){
 <input type="button" value="<?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NEW; ?>" onclick="showNewCategoryForm();" />
 
 <div id="pwc_newcategory_form" style="display:none;">
-<form id="newcategory_form">
+<form enctype="multipart/form-data" method="POST" id="newcategory_form">
 <table border="1">
 <tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NAME; ?></td><td><input type="text" name="name" id="newcategory_form_name" value="" /></td>
 <tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_IDNAME; ?></td><td><input type="text" name="idname" id="newcategory_form_idname" value="" /></td>
-<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_PICTURE; ?></td><td><img src="<?= XOOPS_URL; ?>/modules/charinavi/images/loadPicture.php?x=70&y=70" /><br /></td>
+<tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_PICTURE; ?></td><td><img src="<?= XOOPS_URL; ?>/modules/charinavi/images/loadPicture.php?x=70&y=70" /><br /><input type="file" name="picture" /></td>
 <tr><td><?= _MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_ORDER; ?></td><td><input type="text" name="order" id="newcategory_form_order" value="0" /></td>
 </table>
 </form>
