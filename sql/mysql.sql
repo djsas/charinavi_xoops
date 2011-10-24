@@ -29,7 +29,16 @@ CREATE TABLE charinavi_categories (
 	name TEXT NOT NULL ,
 	idname VARCHAR( 50 ) NOT NULL ,
  	picture_id INT( 10 ) ,
-	order INT( 10 ) DEFAULT '0' NOT NULL ,
+	rank INT( 10 ) DEFAULT '0' NOT NULL ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
+CREATE TABLE charinavi_error (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	uid INT( 10 ) NOT NULL ,
+	code INT( 10 ) NOT NULL ,
+	url TEXT NOT NULL ,
+	datetime TIMESTAMP ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 

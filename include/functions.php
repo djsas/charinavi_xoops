@@ -97,6 +97,25 @@ function is_volunteer($uid){
 	return false;
 }
 
+/**
+ * エラーを発生させ、ログに残す
+ * @param int $code エラー番号
+ * @param string $msg リダイレクト時のエラーメッセージ
+ */
+function occurError($code, $msg){
+	global $xoopsDB, $xoopsUser;
+	$myts =& MyTextSanitizer::getInstance();
+
+	$uid = is_object($xoopsUser) ? $xoopsUser->uid() : -1 ;
+	$url = $myts->makeTboxData4Save($_SERVER['REQUEST_URI']);
+	$datetime = date("Y-m-d H:i:s");
+	
+	$sql = sprintf("INSERT INTO %s(code, uid, url, datetime) VALUES(%s, %s, '%s', '%s');",
+		$xoopsDB->prefix("charinavi_error"), $code, $uid, $url, $datetime);
+	$res = $xoopsDB->queryF($sql);
+	redirect_header(XOOPS_URL."/modules/charinavi/error.php?code=".$code, 2, $msg);
+}
+
 function getErrorMsg($num){  //エラーメッセージの出力
 	$msg = constant("_MD_CHARINAVI_ERROR_".$num);
 	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;

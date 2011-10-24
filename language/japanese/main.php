@@ -5,11 +5,6 @@ define("_MD_CHARINAVI_FORMINPUT_ERROR", "入力内容が不正です。");
 define("_MD_CHARINAVI_FORM_SUBMIT", "送信");
 define("_MD_CHARINAVI_ERRORNUM", "エラー番号");
 
-//エラーメッセージ
-define("_MD_CHARINAVI_ERROR_100", "ポイント購入額の取得に失敗しました。");
-define("_MD_CHARINAVI_ERROR_101", "トランザクションIDの取得に失敗しました。");
-define("_MD_CHARINAVI_ERROR_102", "このフォームはすでに1度以上送信されています。");
-define("_MD_CHARINAVI_ERROR_401", "カテゴリ画像のinsertに失敗しました。");
 
 
 //ボランティア団体登録ページ
@@ -84,3 +79,16 @@ define("_MD_CHARINAVI_PERSONAL_LABEL_DONATION", "寄付の履歴");
 define("_MD_CHARINAVI_PERSONAL_LABEL_DONATION_WHEN", "いつ？");
 define("_MD_CHARINAVI_PERSONAL_LABEL_DONATION_WHERE", "どこへ？");
 define("_MD_CHARINAVI_PERSONAL_LABEL_DONATION_HOW", "いくら？");
+
+//カテゴリの追加
+define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_COMPLETED", "新規カテゴリを追加しました。");
+define("_MD_CHARINAVI_ADMIN_CATEGORIES_MSG_INCOMPLETED", "新規カテゴリの追加に失敗しました。");
+
+//エラーページ
+define("_MD_CHARINAVI_ERROR_MSG_NOCODE", "不正なエラーコードです。");
+define("_MD_CHARINAVI_ERROR_MSG_100", "ポイント購入額の取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_101", "トランザクションIDの取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_102", "このフォームはすでに1度以上送信されています。");
+define("_MD_CHARINAVI_ERROR_MSG_110", "不正な送信が検出されました。");
+define("_MD_CHARINAVI_ERROR_MSG_111", "新規カテゴリのinsertに失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");

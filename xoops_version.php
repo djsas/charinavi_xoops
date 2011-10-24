@@ -71,6 +71,7 @@ $modversion['tables'][3] = "charinavi_tags";
 $modversion['tables'][4] = "charinavi_volunteer";
 $modversion['tables'][5] = "charinavi_category";
 $modversion['tables'][6] = "charinavi_transcheck";
+$modversion['tables'][7] = "charinavi_error";
 
 
 
