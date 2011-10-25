@@ -39,7 +39,7 @@ if(isset($_POST["name"]) && isset($_POST["idname"]) && isset($_POST["rank"])){
 	$name = $myts->makeTboxData4Save($_POST["name"]);
 	$idname = $myts->makeTboxData4Save($_POST["idname"]);
 	$order = intval($_POST["rank"]);
-	if($category_id){
+	if(!empty($category_id)){
 		if($picture_id){
 			$sql = sprintf("UPDATE %s SET name = '%s', idname = '%s', picture_id = %s, rank = %s WHERE id = %s;",
 				$xoopsDB->prefix("charinavi_categories"), $name, $idname, $picture_id, $order, $category_id);

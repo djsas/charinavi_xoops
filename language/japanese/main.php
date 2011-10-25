@@ -94,3 +94,6 @@ define("_MD_CHARINAVI_ERROR_MSG_111", "新規カテゴリのinsertに失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_112", "カテゴリIDの取得に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_113", "カテゴリの削除に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");
+
+//カテゴリのページ
+define("_MD_CHARINAVI_CATEGORIES_MSG_NONE", "指定したカテゴリはありません。");

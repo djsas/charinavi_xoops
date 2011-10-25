@@ -121,6 +121,11 @@ function getErrorMsg($num){  //エラーメッセージの出力
 	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;
 }
 
+//==== デバッグ用の関数 ====
+function v($a){
+	var_dump($a);
+}
+
 // D.S.G.
 
 
