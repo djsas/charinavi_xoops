@@ -3,7 +3,9 @@ require('../../../mainfile.php');
 include_once(XOOPS_ROOT_PATH."/modules/charinavi/include/functions.php");
 include_once(XOOPS_ROOT_PATH."/modules/charinavi/class/imagemanager.class.php");
 
-if(isset($_POST["name"]) && isset($_POST["idname"]) && isset($_POST["order"])){
+if(isset($_POST["name"]) && isset($_POST["idname"]) && isset($_POST["rank"])){
+	print_r($_POST);
+	exit();
 	//必要なクラスの定義
 	$im = new ImageManager();
 	$myts =& MyTextSanitizer::getInstance();
