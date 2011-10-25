@@ -20,7 +20,7 @@ xoops_cp_header();
 </style>
 
 <?php
-$sql = sprintf("SELECT * FROM %s;", $xoopsDB->prefix("charinavi_categories"));
+$sql = sprintf("SELECT * FROM %s ORDER BY rank;", $xoopsDB->prefix("charinavi_categories"));
 $res = $xoopsDB->query($sql);
 $html = "";
 $myts =& MyTextSanitizer::getInstance();
@@ -34,7 +34,7 @@ while($row = $xoopsDB->fetchArray($res)){
 		."<td class='even' id='category_idname_".$id."'>".$idname."</td>"
 		."<td class='even' id='category_picture_".$id."'><img src='".XOOPS_URL."/modules/charinavi/images/loadPicture.php?".$picture_id."x=70&y=70' /></td>"
 		."<td class='even' id='category_rank_".$id."'>".$rank."</td>"
-		."<td class='even'><input type='button' value='"._MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_EDIT."' onclick='showEditCategoryForm(".$id.");' /><input type='button' value='"._MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_DELETE."' /></td></tr>\n";
+		."<td class='even'><input type='button' value='"._MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_EDIT."' onclick='showEditCategoryForm(".$id.");' /><input type='button' value='"._MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_DELETE."' onclick='deleteCategory(".$id.");' /></td></tr>\n";
 }
 if($html){
 	print "<table id='categories_table' width='100%' border='0' cellspacing='1' class='outer'>\n";
@@ -129,6 +129,11 @@ function showEditCategoryForm(id){
 	$("newcategory_form_picture").innerHTML = $("category_picture_"+id).innerHTML;
 	$("newcategory_form_rank").value = $("category_rank_"+id).innerHTML;
 	$("newcategory_form_id").value = id;
+}
+function deleteCategory(id){
+	$("newcategory_form").action = "../svr/deleteCategory.php";
+	$("newcategory_form_id").value = id;
+	$("newcategory_form").submit();
 }
 </script>
 
