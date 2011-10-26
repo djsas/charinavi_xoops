@@ -8,6 +8,7 @@
  *  description: 
  */
 
+
 /**
  * タグIDに対応するタグ名を取得する。
  * @param int $tid タグID。
@@ -30,7 +31,7 @@ function getTagName($tid){
  */
 function getVolunteerID($uid){
 	global $xoopsDB;
-	$sql = sprintf("SELECT * FROM %s WHERE uid = '%s';", $xoopsDB->prefix("charinavi_volunteer"), $uid);
+	$sql = sprintf("SELECT * FROM %s WHERE uid = '%s';", $xoopsDB->prefix("charinavi_volunteers"), $uid);
 	$res = $xoopsDB->query($sql);
 	while($row = $xoopsDB->fetchArray($res)){
 		return $row["id"];
@@ -45,7 +46,7 @@ function getVolunteerID($uid){
  */
 function getVolunteerName($vid){
 	global $xoopsDB;
-	$sql = sprintf("SELECT * FROM %s WHERE id = '%s';", $xoopsDB->prefix("charinavi_volunteer"), $vid);
+	$sql = sprintf("SELECT * FROM %s WHERE id = '%s';", $xoopsDB->prefix("charinavi_volunteers"), $vid);
 	$res = $xoopsDB->query($sql);
 	while($row = $xoopsDB->fetchArray($res)){
 		return $row["name"];

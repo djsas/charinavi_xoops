@@ -16,7 +16,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]){
 	$fax = $myts->makeTboxData4Save($_POST["fax"]);
 	$description = $myts->makeTareaData4Save($_POST["description"]);
 	$sql = sprintf("INSERT INTO %s(uid, name, post, address, phone, fax, description) VALUES(%s, '%s', '%s', '%s', '%s', '%s', '%s');",
-		$xoopsDB->prefix("charinavi_volunteer"), $uid, $name, $post, $address, $phone, $fax, $description);
+		$xoopsDB->prefix("charinavi_volunteers"), $uid, $name, $post, $address, $phone, $fax, $description);
 	$res = $xoopsDB->query($sql);
 	if($res){
 		//ボランティア団体のグループに追加

@@ -2,7 +2,7 @@
 # ChariNavi DB
 #
 
-CREATE TABLE charinavi_activity (
+CREATE TABLE charinavi_activities (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	vid INT( 10 ) NOT NULL ,
 	name TEXT NOT NULL ,
@@ -77,7 +77,7 @@ CREATE TABLE charinavi_transcheck (
 	posted TIMESTAMP
 );
 
-CREATE TABLE charinavi_volunteer (
+CREATE TABLE charinavi_volunteers (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	uid INT( 10 ) NOT NULL ,
 	name TEXT NOT NULL ,

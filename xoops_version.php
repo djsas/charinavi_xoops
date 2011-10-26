@@ -66,10 +66,10 @@ $modversion['sqlfile']['mysql'] = "sql/mysql.sql";
 // Tables
 $modversion['tables'][0] = "charinavi_log";
 $modversion['tables'][1] = "charinavi_personal";
-$modversion['tables'][2] = "charinavi_addactivity";
+$modversion['tables'][2] = "charinavi_addactivities";
 $modversion['tables'][3] = "charinavi_tags";
-$modversion['tables'][4] = "charinavi_volunteer";
-$modversion['tables'][5] = "charinavi_category";
+$modversion['tables'][4] = "charinavi_volunteers";
+$modversion['tables'][5] = "charinavi_categories";
 $modversion['tables'][6] = "charinavi_transcheck";
 $modversion['tables'][7] = "charinavi_error";
 
