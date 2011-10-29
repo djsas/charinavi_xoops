@@ -16,6 +16,17 @@ define("_MD_CHARINAVI_MYACTIVITIES_LABEL_SHOWREPORT", "レポートを表示");
 define("_MD_CHARINAVI_MYACTIVITIES_LABEL_EDIT", "編集");
 define("_MD_CHARINAVI_MYACTIVITIES_LABEL_DELETE", "削除");
 define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ADD", "活動を新規追加");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ADDACTIVITY", "寄付を募りたい活動を登録してください。");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYTITLE", "活動タイトル");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYDESCRIPTION", "活動の概要");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYCATEGORY", "カテゴリ");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYTAGS", "タグ (カンマ区切りで複数設定できます。)");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_REGISTRATION", "登録");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_CHANGE", "変更");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_COMPLETED", "活動の変更が完了しました。");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_INCOMPLETED", "活動の変更に失敗しました。");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ERRORTITLE", "活動タイトルを入力してください。");
+define("_MD_CHARINAVI_MYACTIVITIES_LABEL_ERRORDESCRIPTION", "活動の概要を入力してください。");
 
 
 //ボランティア団体登録ページ
@@ -104,6 +115,10 @@ define("_MD_CHARINAVI_ERROR_MSG_110", "不正な送信が検出されました。");
 define("_MD_CHARINAVI_ERROR_MSG_111", "新規カテゴリのinsertに失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_112", "カテゴリIDの取得に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_113", "カテゴリの削除に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_120", "不正な送信が検出されました。");
+define("_MD_CHARINAVI_ERROR_MSG_121", "ボランティア活動をDBにinsertできませんでした。");
+define("_MD_CHARINAVI_ERROR_MSG_122", "活動IDの取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_123", "活動の削除に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");
 
 //カテゴリのページ

@@ -11,7 +11,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]){
 		print _MD_CHARINAVI_FORMINPUT_ERROR;
 	}else{
 		$uid = $xoopsUser->uid();
-		$vid = getVolunteerID($uid);
+		$vid = getVolunteerId($uid);
 		$myts =& MyTextSanitizer::getInstance();
 		$name = $myts->makeTareaData4Save($_POST["name"]);
 		$description = $myts->makeTareaData4Save($_POST["description"]);

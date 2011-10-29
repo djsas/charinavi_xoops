@@ -3,6 +3,8 @@ include_once(XOOPS_ROOT_PATH.'/modules/charinavi/include/functions.php');
 
 function b_charinavi_new_show(){
 	global $xoopsDB;
+	$block = array();
+	
 	$sql = "SELECT * FROM ".$xoopsDB->prefix("charinavi_activity")." ORDER BY id DESC LIMIT 2";
 	$res = $xoopsDB->query($sql);
 	$i = 0;

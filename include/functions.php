@@ -29,7 +29,7 @@ function getTagName($tid){
  * @param int $uid ユーザID。
  * @return int ボランティア団体ID。
  */
-function getVolunteerID($uid){
+function getVolunteerId($uid){
 	global $xoopsDB;
 	$sql = sprintf("SELECT * FROM %s WHERE uid = '%s';", $xoopsDB->prefix("charinavi_volunteers"), $uid);
 	$res = $xoopsDB->query($sql);
