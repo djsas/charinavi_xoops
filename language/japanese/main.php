@@ -122,4 +122,5 @@ define("_MD_CHARINAVI_ERROR_MSG_123", "活動の削除に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");
 
 //カテゴリのページ
-define("_MD_CHARINAVI_CATEGORIES_MSG_NONE", "指定したカテゴリはありません。");
+define("_MD_CHARINAVI_CATEGORY_MSG_NOACTIVITY", "指定したカテゴリに所属する活動はありません。");
+define("_MD_CHARINAVI_CATEGORY_MSG_NOCATEGORY", "指定したカテゴリはありません。");

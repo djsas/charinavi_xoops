@@ -25,7 +25,7 @@ function checkForm(){
 <?php
 
 $id = intval($_GET["id"]);
-$sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_activity"), $id);
+$sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_activities"), $id);
 $res = $xoopsDB->query($sql);
 $row = $xoopsDB->fetchArray($res);
 if($row === false){
