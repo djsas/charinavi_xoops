@@ -1,7 +1,8 @@
 <h2><{$title}></h2>
 <{$vname}>
-<form name="donation" method="POST" action="donating.php" onsubmit="return checkForm();">
+<form name="donation" method="POST" action="svr/donate.php" onsubmit="return checkForm();">
 <{$msg}><input type="text" name="amount" value="0" /><{$unit}>
 <input type="submit" name="submit" value="<{$submit}>" />
+<input type="hidden" name="transid" value="<{$trans_id}>" />
 <input type="hidden" name="volunteer_id" value="<{$volunteer_id}>" />
 </form>

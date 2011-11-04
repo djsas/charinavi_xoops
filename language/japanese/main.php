@@ -119,6 +119,11 @@ define("_MD_CHARINAVI_ERROR_MSG_120", "不正な送信が検出されました。");
 define("_MD_CHARINAVI_ERROR_MSG_121", "ボランティア活動をDBにinsertできませんでした。");
 define("_MD_CHARINAVI_ERROR_MSG_122", "活動IDの取得に失敗しました。");
 define("_MD_CHARINAVI_ERROR_MSG_123", "活動の削除に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_130", "寄付額の取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_131", "トランザクションIDの取得に失敗しました。");
+define("_MD_CHARINAVI_ERROR_MSG_132", "このフォームはすでに1度以上送信されています。");
+define("_MD_CHARINAVI_ERROR_MSG_133", "所有ポイントが足りません。");
+define("_MD_CHARINAVI_ERROR_MSG_134", "所有ポイントの情報が設定されていません。");
 define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");
 
 //カテゴリのページ

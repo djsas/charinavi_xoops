@@ -118,11 +118,18 @@ function occurError($code, $msg){
 }
 
 function getErrorMsg($num){  //エラーメッセージの出力
-	$msg = constant("_MD_CHARINAVI_ERROR_".$num);
+	$msg = constant("_MD_CHARINAVI_ERROR_MSG_".$num);
 	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;
 }
 
 //==== デバッグ用の関数 ====
+function p($a){
+	if(is_array($a)){
+		print_r($a);
+	}else{
+		print($a);
+	}
+}
 function v($a){
 	var_dump($a);
 }

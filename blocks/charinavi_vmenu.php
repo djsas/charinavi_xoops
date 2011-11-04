@@ -11,7 +11,7 @@ function b_charinavi_vmenu_show(){
 	}
 	
 	//言語の取得
-	$block['language']['vmenu_addactivity'] = _MB_CHARINAVI_VMENU_ADDACTIVITY;
+	$block['language']['vmenu_myactivities'] = _MB_CHARINAVI_VMENU_MYACTIVITIES;
 	
 	return $block;
 }

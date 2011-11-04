@@ -21,9 +21,7 @@ function checkForm(){
 	}
 }
 </script>
-<div id="log"></div>
 <?php
-
 $id = intval($_GET["id"]);
 $sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_activities"), $id);
 $res = $xoopsDB->query($sql);
@@ -42,8 +40,13 @@ if($row === false){
 	$body->assign("unit", _MD_CHARINAVI_ACTIVITY_UNIT);
 	$body->assign("submit", _MD_CHARINAVI_ACTIVITY_SUBMIT);
 	$body->assign("volunteer_id", $id);
+	$tm = new TransManager();
+	$body->assign("trans_id", $tm->get());
 	echo $body->fetch("db:charinavi_activity.html");
+	
+	$xoopsTpl->assign('xoops_pagesubtitle', $name);
 ?>
+<div id="log"></div>
 
 <h2><?= _MD_CHARINAVI_ACTIVITY_REVIEW_TITLE; ?></h2>
 <?php
@@ -96,7 +99,7 @@ window.onload = function(){
 	for(var i=0; i<s.length; i+=2){
 		if(s[i]){
 			var selector = "#starspan_"+s[i]+" input";
-			console.log(selector);
+			//console.log(selector);
 			$(selector).rating("select", s[i+1]);
 			$(selector).rating("readOnly", true);
 		}

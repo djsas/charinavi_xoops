@@ -7,7 +7,7 @@ define('_MB_CHARINAVI_MENU_PERSONAL', "個人情報の登録・変更");
 define('_MB_CHARINAVI_MENU_ADMIN', "管理者メニュー"); 
 
 //ボランティア団体向けメニュー
-define('_MB_CHARINAVI_VMENU_ADDACTIVITY', "寄付を募る"); 
+define('_MB_CHARINAVI_VMENU_MYACTIVITIES', "活動の登録・管理"); 
 
 //アバターブロック
 define('_MB_CHARINAVI_AVATAR_LABEL_AMOUNT', "ポイントあります。");
