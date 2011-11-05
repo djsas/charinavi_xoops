@@ -18,5 +18,8 @@ define("_MB_CHARINAVI_AVATAR_EXCHANGE_DESCRIPTION", "1±ß¤ËÂÐ¤·¤Æ¡¢¥Á¥ã¥ê¥³¥¤¥ó1Ë
 define("_MB_CHARINAVI_AVATAR_EXCHANGE_MSG_FORM", "Ëç¤Î¥Á¥ã¥ê¥³¥¤¥ó¤È´¹¶â¤·¤Þ¤¹¡£");
 define("_MB_CHARINAVI_AVATAR_LABEL_INTERROR", "0°Ê¾å¤Î¿ô»ú¤òÆþÎÏ¤·¤Æ¤¯¤À¤µ¤¤¡£");
 define("_MB_CHARINAVI_AVATAR_LABEL_STRINGERROR", "¿ô»ú¤òÆþÎÏ¤·¤Æ¤¯¤À¤µ¤¤¡£");
+define("_MB_CHARINAVI_AVATAR_LABEL_LOGIN", "¥í¥°¥¤¥ó");
+define("_MB_CHARINAVI_AVATAR_LABEL_REGISTER", "¿·µ¬ÅÐÏ¿");
+define("_MB_CHARINAVI_AVATAR_LABEL_NOLOGIN", "¥í¥°¥¤¥ó¤·¤Ê¤¤¤Ç»È¤¦¡£");
 
 // D.S.G.
