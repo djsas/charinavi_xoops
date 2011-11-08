@@ -22,9 +22,7 @@ function b_charinavi_avatar_show(){
 		$tm = new TransManager();
 		$block["trans_id"] = $tm->get();
 	}else{
-		$block["language"]["label_login"] = _MB_CHARINAVI_AVATAR_LABEL_LOGIN;
-		$block["language"]["label_register"] = _MB_CHARINAVI_AVATAR_LABEL_REGISTER;
-		$block["language"]["label_nologin"] = _MB_CHARINAVI_AVATAR_LABEL_NOLOGIN;
+		header("Location:".XOOPS_URL."/modules/charinavi/login.php");
 	}
 
 	return $block;

@@ -129,3 +129,9 @@ define("_MD_CHARINAVI_ERROR_MSG_401", "カテゴリ画像のinsertに失敗しました。");
 //カテゴリのページ
 define("_MD_CHARINAVI_CATEGORY_MSG_NOACTIVITY", "指定したカテゴリに所属する活動はありません。");
 define("_MD_CHARINAVI_CATEGORY_MSG_NOCATEGORY", "指定したカテゴリはありません。");
+
+//ログインページ
+define("_MD_CHARINAVI_LOGIN_LABEL_LOGIN", "ログイン");
+define("_MD_CHARINAVI_LOGIN_LABEL_REGISTER", "新規登録");
+define("_MD_CHARINAVI_LOGIN_LABEL_NOLOGIN", "ログインしないで使う。");
+

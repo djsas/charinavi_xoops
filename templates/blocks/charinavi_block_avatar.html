@@ -53,22 +53,4 @@ function openBuying(){
 		}});
 }
 </script>
-<{else}>
-<div id="pwc_login" style="display:none;">
-<div><img src="<{$xoops_url}>/themes/<{$xoops_theme}>/images/topbackground.png" /></div>
-<div style="width:850px; background-color:black; margin-left:auto; margin-right:auto; padding-top:25px; padding-bottom:25px;">
-<form>
-<input type="text" value="user name" /> <input type="text" value="password" /> <input type="submit" value="<{$block.language.label_login}>" />
-</form>
-<div style="color:white; margin-top:10px;"><span>&gt;&gt;<{$block.language.label_register}></span>
-<span style="margin-left:15px;">&gt;&gt;<{$block.language.label_nologin}></span></div>
-</div>
-</div> <!-- end id=pwc_login //-->
-<script type="text/javascript">
-function showTopImage() {
-	Dialog.alert($('pwc_login').innerHTML, 
-		{top: 10, width:980, height:640, className: "alphacube2", okLabel: "<{$block.language.label_nologin}>" });
-}
-showTopImage();
-</script>
 <{/if}>
