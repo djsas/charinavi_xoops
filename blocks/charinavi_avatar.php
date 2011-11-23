@@ -22,7 +22,7 @@ function b_charinavi_avatar_show(){
 		$tm = new TransManager();
 		$block["trans_id"] = $tm->get();
 	}else{
-		header("Location:".XOOPS_URL."/modules/charinavi/login.php");
+		//header("Location:".XOOPS_URL."/modules/charinavi/login.php");
 	}
 
 	return $block;

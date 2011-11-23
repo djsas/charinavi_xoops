@@ -33,6 +33,12 @@ CREATE TABLE charinavi_categories (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_credit_types (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	credit_type VARCHAR( 255 ) NOT NULL ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
 CREATE TABLE charinavi_error (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	uid INT( 10 ) NOT NULL ,
@@ -52,6 +58,13 @@ CREATE TABLE charinavi_log (
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_municipalities (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	municipality VARCHAR( 255 ) NOT NULL ,
+	prefecture_id INT( 10 ) NOT NULL ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
 CREATE TABLE charinavi_personal (
 	uid INT( 10 ) NOT NULL ,
 	picture_id INT( 10 ) ,	
@@ -63,6 +76,14 @@ CREATE TABLE charinavi_pictures (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	image MEDIUMBLOB ,
 	imagetype VARCHAR( 10 ) ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
+CREATE TABLE charinavi_prefectures (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	prefecture VARCHAR( 255 ) NOT NULL ,
+	lat FLOAT NOT NULL ,
+	lng FLOAT NOT NULL ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
 

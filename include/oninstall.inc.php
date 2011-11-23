@@ -16,6 +16,8 @@ function xoops_module_install_charinavi( $xoopsMod ) {
 		return false;
 	}
 	
+	insertDatas();
+	
 	return true;  //complete the installation
 }
 
@@ -38,4 +40,32 @@ function createGroup( $name, $description ) {
 	}
 	$gid = $group->getVar( 'groupid', 'n' );
 	return $gid;
+}
+
+/**
+ * insert datas into tables
+ */
+function insertDatas(){
+	global $xoopsDB;
+	$table = $xoopsDB->prefix("charinavi_credit_types");
+	$sql = "INSERT INTO $table('credit_type') VALUES ('ÉáÄÌ')";
+	$res = $xoopsDB->query($sql);
+	$sql = "INSERT INTO $table('credit_type') VALUES ('ÅöºÂ')";
+	$res = $xoopsDB->query($sql);
+	
+	$table = $xoopsDB->prefix("charinavi_prefectures");
+	include(XOOPS_ROOT_PATH."/modules/charinavi/include/prefectures.php");
+	$prefecture_ids = array();
+	foreach($prefectures as $p){
+		$sql = sprintf("INSERT INTO %s(prefecture, lat, lng) VALUES('%s', %s, %s);", $table, $p[0], $p[1], $p[2]);
+		$res = $xoopsDB->queryF($sql);
+		$prefecture_ids[$p[0]] = $xoopsDB->getInsertId();
+	}
+
+	$table = $xoopsDB->prefix("charinavi_municipalities");
+	include(XOOPS_ROOT_PATH."/modules/charinavi/include/municipalities.php");
+	foreach($municipalities as $m){
+		$sql = sprintf("INSERT INTO %s(municipality, prefecture_id) VALUES('%s', %s);", $table, $m[1], $prefecture_ids[$m[0]]);
+		$res = $xoopsDB->queryF($sql);
+	}
 }
