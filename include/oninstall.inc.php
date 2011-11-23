@@ -68,4 +68,11 @@ function insertDatas(){
 		$sql = sprintf("INSERT INTO %s(municipality, prefecture_id) VALUES('%s', %s);", $table, $m[1], $prefecture_ids[$m[0]]);
 		$res = $xoopsDB->queryF($sql);
 	}
+
+	$table = $xoopsDB->prefix("charinavi_personalities");
+	include(XOOPS_ROOT_PATH."/modules/charinavi/include/personalities.php");
+	foreach($personalities as $p){
+		$sql = sprintf("INSERT INTO %s(personality) VALUES('%s');", $table, $p);
+		$res = $xoopsDB->queryF($sql);
+	}
 }

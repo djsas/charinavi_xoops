@@ -72,6 +72,12 @@ CREATE TABLE charinavi_personal (
 	PRIMARY KEY ( uid )
 ) TYPE = MYISAM ;
 
+CREATE TABLE charinavi_personalities (
+	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
+	personality VARCHAR( 255 ) NOT NULL ,
+	PRIMARY KEY ( id )
+) TYPE = MYISAM ;
+
 CREATE TABLE charinavi_pictures (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	image MEDIUMBLOB ,
@@ -103,9 +109,36 @@ CREATE TABLE charinavi_volunteers (
 	uid INT( 10 ) NOT NULL ,
 	name TEXT NOT NULL ,
 	post VARCHAR( 10 ) NOT NULL ,
+	prefecture_id INT( 10 ) NOT NULL ,
+	municipality_id INT( 10 ) NOT NULL ,
 	address TEXT NOT NULL ,
-	phone VARCHAR( 15 ) NOT NULL ,
-	fax VARCHAR( 15 ) NOT NULL ,
+	logo_id INT( 10 ) NOT NULL ,
+	homepage TEXT ,
+	blog TEXT ,
+	facebook TEXT ,
+	personality_id INT( 10 ) NOT NULL ,
+	open_name TEXT ,
+	open_phone VARCHAR( 15 ) NOT NULL ,
+	open_fax VARCHAR( 15 ) NOT NULL ,
+	open_mail VARCHAR( 255 ) NOT NULL ,
+	close_name TEXT ,
+	close_phone VARCHAR( 15 ) NOT NULL ,
+	close_fax VARCHAR( 15 ) NOT NULL ,
+	close_mail VARCHAR( 255 ) NOT NULL ,
+	num_staffs INT( 10 ) NOT NULL ,
+	num_volunteers INT( 10 ) NOT NULL ,
 	description TEXT NOT NULL ,	
+	statutory TEXT NOT NULL ,
+	category_id INT( 10 ) NOT NULL ,
+	last_modified TIMESTAMP NOT NULL ,
+	accountant_name TEXT ,
+	accountant_phone VARCHAR( 15 ) NOT NULL ,
+	accountant_fax VARCHAR( 15 ) NOT NULL ,
+	accountant_mail VARCHAR( 255 ) NOT NULL ,
+	credit_bank VARCHAR( 255 ) ,
+	credit_branch VARCHAR( 255 ) ,
+	credit_type_id INT( 10 ) ,
+	credit_number VARCHAR( 20 ) ,
+	credit_name VARCHAR( 255 ) ,
 	PRIMARY KEY ( id )
 ) TYPE = MYISAM ;
