@@ -53,7 +53,7 @@ function printListCategory(){
 
 ?>
 <style type="text/css">
-#fname, #fname_yomi, #faddress, #fopen_name, #fopen_mail, #fclose_name, #fclose_mail, #fhomepage, #fblog, #ffacebook{ width: 400px; }
+#fname, #fname_yomi, #funame, #fpassword1, #fpassword2, #faddress, #fopen_name, #fopen_mail, #fclose_name, #fclose_mail, #fhomepage, #fblog, #ffacebook{ width: 400px; }
 #fpost1, #fopen_phone1, #fopen_fax1, #fclose_phone1, #fclose_fax1, #num_staffs, #num_volunteers{ width: 50px; }
 #fpost2, #fopen_phone2, #fopen_phone3, #fopen_fax2, #fopen_fax3, #fclose_phone2, #fclose_phone3, #fclose_fax2, #fclose_fax3{ width: 60px; }
 #fdescription, #fstatutory{ height:200px; width:400px; }
@@ -64,6 +64,9 @@ function printListCategory(){
 <tr><th>ボランティア団体名</th><td><input type="text" id="fname" name="name" value="" /></td></tr>
 <tr><th>ボランティア団体名(ふりがな)</th><td><input type="text" id="fname_yomi" name="name_yomi" value="" /></td></tr>
 <tr><th>法人種類</th><td><select id="fpersonality" name="personality"><?php printListPersonality(); ?></select></td></tr>
+<tr><th>ログイン用のアカウント名</th><td><input type="text" id="funame" name="uname" value="" /></td></tr>
+<tr><th>パスワード</th><td><input type="password" id="fpassword1" name="password1" value="" /></td></tr>
+<tr><th>パスワード(確認用)</th><td><input type="password" id="fpassword2" name="password2" value="" /></td></tr>
 <tr><th>郵便番号</th><td><input type="text" id="fpost1" name="post1" value="" /> - <input type="text" id="fpost2" name="post2" value="" /></td></tr>
 <tr><th>都道府県</th><td><select id="fprefecture" name="prefecture" onchange="showMunicipalities(this[this.selectedIndex].value);"><?php printListPrefecture(); ?></select></td></tr>
 <tr><th>市区町村</th><td><select id="fmunicipality" name="municipality"></select></td></tr>

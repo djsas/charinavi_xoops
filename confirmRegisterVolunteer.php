@@ -50,6 +50,8 @@ function getCategory($id){
 
 $name = htmlspecialchars($_POST["name"]);
 $name_yomi = htmlspecialchars($_POST["name_yomi"]);
+$uname = htmlspecialchars($_POST["uname"]);
+$_SESSION["password"] = $_POST["password"];
 $personality_id = intval($_POST["personality"]);
 $post = htmlspecialchars($_POST["post1"]) . "-" . htmlspecialchars($_POST["post2"]);
 $prefecture_id = intval($_POST["prefecture"]);
@@ -74,11 +76,13 @@ $statutory = htmlspecialchars($_POST["statutory"]);
 $category_id = intval($_POST["category"]);
 
 ?>
-<form method="POST" action="confirmRegisterVolunteer.php">
+<form method="POST" action="svr/registerVolunteer.php">
 <table class="tablecloth">
 <tr><th>ボランティア団体名</th><td><?= $name; ?><input type="hidden" name="name" value="<?= $name; ?>" /></td></tr>
 <tr><th>ボランティア団体名(ふりがな)</th><td><?= $name_yomi; ?><input type="hidden" name="name_yomi" value="<?= $name_yomi; ?>" /></td></tr>
 <tr><th>法人種類</th><td><?= getPersonality($personality_id); ?><input type="hidden" name="personality_id" value="<?= $personality_id; ?>" /></td></tr>
+<tr><th>ログイン用のアカウント名</th><td><?= $uname; ?><input type="hidden" name="post" value="<?= $uname; ?>" /></td></tr>
+<tr><th>パスワード</th><td>******</td></tr>
 <tr><th>郵便番号</th><td><?= $post; ?><input type="hidden" name="post" value="<?= $post; ?>" /></td></tr>
 <tr><th>都道府県</th><td><?= getPrefecture($prefecture_id); ?><input type="hidden" name="prefecture_id" value="<?= $prefecture_id; ?>" /></td></tr>
 <tr><th>市区町村</th><td><?= getMunicipality($municipality_id); ?><input type="hidden" name="municipality_id" value="<?= $municipality_id; ?>" /></td></tr>
@@ -101,7 +105,7 @@ $category_id = intval($_POST["category"]);
 <tr><th>定款・会則の情報</th><td><?= $statutory; ?><input type="hidden" name="statutory" value="<?= $statutory; ?>" /></td></tr>
 <tr><th>カテゴリ</th><td><?= getCategory($category_id); ?><input type="hidden" name="category_id" value="<?= $category_id; ?>" /></td></tr>
 </table>
-<input type="submit" name="submit" value="確認ページへ" />
+<input type="submit" name="submit" value="登録" />
 </form>
 <?php
 include(XOOPS_ROOT_PATH.'/footer.php');

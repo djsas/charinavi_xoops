@@ -24,6 +24,18 @@ function getTagName($tid){
 	return false;
 }
 
+
+/**
+ * volunteerグループのグループIDを取得する
+ * @return int volunteerグループのID
+ */
+function getVolunteerGroupId(){
+	$sql = "SELECT * FROM ".$xoopsDB->prefix("groups")." WHERE name = 'volunteer';";
+	$res = $xoopsDB->query($sql);
+	$row = $xoopsDB->fetchArray($res);
+	return int($row["groupid"]);
+}
+
 /**
  * 所属するボランティア団体のIDを取得する。
  * @param int $uid ユーザID。
