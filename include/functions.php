@@ -30,10 +30,11 @@ function getTagName($tid){
  * @return int volunteerグループのID
  */
 function getVolunteerGroupId(){
+	global $xoopsDB;
 	$sql = "SELECT * FROM ".$xoopsDB->prefix("groups")." WHERE name = 'volunteer';";
 	$res = $xoopsDB->query($sql);
 	$row = $xoopsDB->fetchArray($res);
-	return int($row["groupid"]);
+	return intval($row["groupid"]);
 }
 
 /**

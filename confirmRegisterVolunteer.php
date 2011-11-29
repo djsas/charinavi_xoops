@@ -51,7 +51,7 @@ function getCategory($id){
 $name = htmlspecialchars($_POST["name"]);
 $name_yomi = htmlspecialchars($_POST["name_yomi"]);
 $uname = htmlspecialchars($_POST["uname"]);
-$_SESSION["password"] = $_POST["password"];
+$_SESSION["password"] = $_POST["password1"];
 $personality_id = intval($_POST["personality"]);
 $post = htmlspecialchars($_POST["post1"]) . "-" . htmlspecialchars($_POST["post2"]);
 $prefecture_id = intval($_POST["prefecture"]);

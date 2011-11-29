@@ -9,6 +9,7 @@
 // ボランティア団体の情報を登録する
 
 require('../../../mainfile.php');
+include_once(XOOPS_ROOT_PATH.'/modules/charinavi/include/functions.php');
 print_r($_POST);
 
 $myts =& MyTextSanitizer::getInstance();
@@ -18,8 +19,8 @@ $myts =& MyTextSanitizer::getInstance();
 $name = $myts->makeTboxData4Save($_POST["name"]);
 $name_yomi = $myts->makeTboxData4Save($_POST["name_yomi"]);
 $personality_id = intval($_POST["personality_id"]);
-$uname = $myts->makeTboxData4Save($_POST["uname"]);
-$password = = $myts->makeTboxData4Save($_SESSION["password"]);
+$uname = $myts->makeTboxData4Save($_POST["name"]);
+$password = $myts->makeTboxData4Save($_SESSION["password"]);
 $post = $myts->makeTboxData4Save($_POST["post"]);
 $prefecture_id = intval($_POST["prefecture_id"]);
 $municipality_id = intval($_POST["municipality_id"]);
@@ -48,9 +49,20 @@ $sql = sprintf("INSERT INTO %s(name, name_yomi, post, prefecture_id, municipalit
 //$res = $xoopsDB->query($sql);
 
 //== XOOPSアカウントの登録 ==
-$sql = sprintf("INSERT INTO %s(name, uname, email, url, user_avatar, user_regdate, user_icq, user_from, user_sig, user_viewemail, actkey, user_aim, user_yim, user_msnm, pass, posts, attachsig, rank, level, theme, timezone_offset, last_login, umode, uorder, notify_method, notify_mode, user_occ, bio, user_intrest, user_mailok) VALUES('', '%s', '%s', '', 'blank.gif', %s, '', '', '', 0, '', '', '', '',  
-	$xoopsDB->prefix("users"), $uname, $close_mail, time(), 
-//$sql = sprintf("INSERT INTO %s(groupid, uid)
+$time = time();
+$sql = sprintf("INSERT INTO %s(name, uname, email, url, user_avatar, user_regdate, user_icq, user_from, user_sig, user_viewemail, actkey, user_aim, user_yim, user_msnm, pass, posts, attachsig, rank, level, theme, timezone_offset, last_login, umode, uorder, notify_method, notify_mode, user_occ, bio, user_intrest, user_mailok) VALUES('', '%s', '%s', '', 'blank.gif', %s, '', '', '', 0, '', '', '', '',  '%s', 0, 0, 0, 0, '', 9.0, 0, 'nest', 0, 1, 0, '', '', '', 0);",
+	$xoopsDB->prefix("users"), $uname, $close_mail, $time, md5($password));
+$res = $xoopsDB->query($sql);
+
+//== ユーザIDの取得 ==
+$sql = sprintf("SELECT * FROM %s WHERE uname = '%s' AND email = '%s' AND user_regdate = %s AND pass = '%s';",
+	$xoopsDB->prefix("users"), $uname, $close_mail, $time, md5($password));
+$res = $xoopsDB->query($sql);
+$row = $xoopsDB->fetchArray($res);
+$uid = $row["uid"];
+//print $row["uid"];
+$sql = sprintf("INSERT INTO %s(groupid, uid) VALUES(%s, %s);", $xoopsDB->prefix("groups_users_link"), getVolunteerGroupId(), $uid);
+print $sql;
 
 
 // S.D.G.
