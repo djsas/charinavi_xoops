@@ -81,7 +81,7 @@ $category_id = intval($_POST["category"]);
 <tr><th>ボランティア団体名</th><td><?= $name; ?><input type="hidden" name="name" value="<?= $name; ?>" /></td></tr>
 <tr><th>ボランティア団体名(ふりがな)</th><td><?= $name_yomi; ?><input type="hidden" name="name_yomi" value="<?= $name_yomi; ?>" /></td></tr>
 <tr><th>法人種類</th><td><?= getPersonality($personality_id); ?><input type="hidden" name="personality_id" value="<?= $personality_id; ?>" /></td></tr>
-<tr><th>ログイン用のアカウント名</th><td><?= $uname; ?><input type="hidden" name="post" value="<?= $uname; ?>" /></td></tr>
+<tr><th>ログイン用のアカウント名</th><td><?= $uname; ?><input type="hidden" name="uname" value="<?= $uname; ?>" /></td></tr>
 <tr><th>パスワード</th><td>******</td></tr>
 <tr><th>郵便番号</th><td><?= $post; ?><input type="hidden" name="post" value="<?= $post; ?>" /></td></tr>
 <tr><th>都道府県</th><td><?= getPrefecture($prefecture_id); ?><input type="hidden" name="prefecture_id" value="<?= $prefecture_id; ?>" /></td></tr>
