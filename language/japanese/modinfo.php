@@ -11,3 +11,4 @@ define("_MI_CHARINAVI_BLOCK_AVATAR_DESCRIPTION", "アバター画像と名前の表示");
 
 // Names of admin menu items
 define("_MI_CHARINAVI_ADMENU1", "カテゴリの設定");
+define("_MI_CHARINAVI_ADMENU2", "ボランティア団体の承認");

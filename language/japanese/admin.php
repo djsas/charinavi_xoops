@@ -1,6 +1,7 @@
 <?php
 define( "_MD_CHARINAVI_ADMIN",               "チャリナビ☆ 各種設定" );
 define( "_MD_CHARINAVI_ADMIN_CATEGORY_TITLE",    "カテゴリの設定" );
+define( "_MD_CHARINAVI_ADMIN_SCREENING_TITLE",    "ボランティア団体の審査" );
 
 //カテゴリの設定
 define("_MD_CHARINAVI_ADMIN_CATEGORIES_LABEL_NEW", "新規カテゴリを作成");

@@ -26,6 +26,7 @@ echo "<h4>"._MD_CHARINAVI_ADMIN."</h4>";
 echo"<table width='100%' border='0' cellspacing='1' class='outer'>";
 echo "<tr class=\"odd\"><td>";
 //echo " - <a href='$x_url/modules/system/admin.php?fct=preferences&op=showmod&mod=$mid'>".$general."</a><br />\n";
+echo " - <a href='$x_url/modules/charinavi/admin/screening.php'>"._MD_CHARINAVI_ADMIN_SCREENING_TITLE."</a><br />\n";
 echo " - <a href='$x_url/modules/charinavi/admin/category.php'>"._MD_CHARINAVI_ADMIN_CATEGORY_TITLE."</a><br />\n";
 echo "</td></tr>";
 echo "</table>";

@@ -53,8 +53,12 @@ if($_GET["id"]){
 	$sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_volunteers"), intval($_GET["id"]));
 	$res = $xoopsDB->query($sql);
 	$myts =& MyTextSanitizer::getInstance();
-	while($row = $xoopsDB->fetchArray($res)){ ?>
-	
+	while($row = $xoopsDB->fetchArray($res)){ 
+		if($row["authorized"] == 0){
+			print "このボランティア団体は審査中です。";
+		}
+	?>
+
 <table class="tablecloth">
 <tr><th>ボランティア団体名</th><td><?= $myts->makeTboxData4Show($row["name"]); ?></td></tr>
 <tr><th>ボランティア団体名(ふりがな)</th><td><?= $myts->makeTboxData4Show($row["name_yomi"]); ?></td></tr>
