@@ -10,7 +10,7 @@ CREATE TABLE charinavi_activities (
 	category_id INT( 10 ) ,
 	tags TEXT ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_activity_review (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -22,7 +22,7 @@ CREATE TABLE charinavi_activity_review (
 	created_date TIMESTAMP NOT NULL ,
 	modified_date TIMESTAMP NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_categories (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -31,13 +31,13 @@ CREATE TABLE charinavi_categories (
  	picture_id INT( 10 ) ,
 	rank INT( 10 ) DEFAULT '0' NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_credit_types (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	credit_type VARCHAR( 255 ) NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_error (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -46,7 +46,7 @@ CREATE TABLE charinavi_error (
 	url TEXT NOT NULL ,
 	datetime TIMESTAMP ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_log (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -56,34 +56,34 @@ CREATE TABLE charinavi_log (
 	to_id INT( 10 ) ,
 	time TIMESTAMP NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_municipalities (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	municipality VARCHAR( 255 ) NOT NULL ,
 	prefecture_id INT( 10 ) NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_personal (
 	uid INT( 10 ) NOT NULL ,
 	picture_id INT( 10 ) ,	
 	amount INT( 10 ) ,
 	PRIMARY KEY ( uid )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_personalities (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	personality VARCHAR( 255 ) NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_pictures (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	image MEDIUMBLOB ,
 	imagetype VARCHAR( 10 ) ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_prefectures (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -91,18 +91,18 @@ CREATE TABLE charinavi_prefectures (
 	lat FLOAT NOT NULL ,
 	lng FLOAT NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_tags (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
 	name TEXT NOT NULL ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_transcheck (
 	transid TEXT,
 	posted TIMESTAMP
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE charinavi_volunteers (
 	id INT( 10 ) NOT NULL AUTO_INCREMENT ,
@@ -143,4 +143,4 @@ CREATE TABLE charinavi_volunteers (
 	credit_number VARCHAR( 20 ) ,
 	credit_name VARCHAR( 255 ) ,
 	PRIMARY KEY ( id )
-) TYPE = MYISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
