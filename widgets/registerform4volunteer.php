@@ -56,7 +56,7 @@ function printListCategory(){
 #fdescription, #fstatutory{ height:200px; width:400px; }
 </style>
 
-<form method="POST" action="confirmRegisterVolunteer.php">
+<form enctype="multipart/form-data" method="POST" action="confirmRegisterVolunteer.php">
 <table class="tablecloth">
 <tr><th>ボランティア団体名</th><td><input type="text" id="fname" name="name" value="" /></td></tr>
 <tr><th>ボランティア団体名(ふりがな)</th><td><input type="text" id="fname_yomi" name="name_yomi" value="" /></td></tr>
