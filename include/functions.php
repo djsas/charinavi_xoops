@@ -142,10 +142,10 @@ function getErrorMsg($num){  //エラーメッセージの出力
 /**
  * 画像をアップロードする
  * @param string $name name属性に与えられた名前
- * @param int $uid 画像をアップロードしたユーザID
  * @return int アップロードされた画像のID
  */
-function uploadPicture($name, $uid){
+function uploadPicture($name){
+	global $_FILES;
 	$im = new ImageManager();
 	if(is_uploaded_file($_FILES[$name]["tmp_name"]) && $im->isImageType($_FILES[$name]["type"])){
 		$img = file_get_contents($_FILES[$name]["tmp_name"]);

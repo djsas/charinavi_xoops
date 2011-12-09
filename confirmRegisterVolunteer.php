@@ -67,7 +67,7 @@ $close_fax = htmlspecialchars($_POST["close_fax1"]) . "-" . htmlspecialchars($_P
 $close_mail = htmlspecialchars($_POST["close_mail"]);
 $num_staffs = intval($_POST["num_staffs"]);
 $num_volunteers = intval($_POST["num_volunteers"]);
-
+$picture_id = uploadPicture("logo");
 $homepage = htmlspecialchars($_POST["homepage"]);
 $blog = htmlspecialchars($_POST["blog"]);
 $facebook = htmlspecialchars($_POST["facebook"]);
@@ -97,7 +97,7 @@ $category_id = intval($_POST["category"]);
 <tr><th>Charity Japanとの連絡対応者メールアドレス</th><td><?= $close_mail; ?><input type="hidden" name="close_mail" value="<?= $close_mail; ?>" /></td></tr>
 <tr><th>スタッフ人数</th><td><?= $num_staffs; ?><input type="hidden" name="num_staffs" value="<?= $num_staffs; ?>" /></td></tr>
 <tr><th>ボランティア人数</th><td><?= $num_volunteers; ?><input type="hidden" name="num_volunteers" value="<?= $num_volunteers; ?>" /></td></tr>
-<tr><th>団体のロゴ画像</th><td><input type="file" id="flogo" name="logo" /></td></tr>
+<tr><th>団体のロゴ画像</th><td><img src="images/loadPicture.php?id=<?= $picture_id; ?>&x=80&y=80" /><input type="hidden" name="logo" value="<?= $picture_id; ?>" /></td></tr>
 <tr><th>団体の公式サイトURL</th><td><?= $homepage; ?><input type="hidden" name="homepage" value="<?= $homepage; ?>" /></td></tr>
 <tr><th>団体のブログURL</th><td><?= $blog; ?><input type="hidden" name="blog" value="<?= $blog; ?>" /></td></tr>
 <tr><th>団体のFacebookURL</th><td><?= $facebook; ?><input type="hidden" name="facebook" value="<?= $facebook; ?>" /></td></tr>
