@@ -1,12 +1,16 @@
 <?php
-/** 
- *  cmd:    php programs/
- *  create: 2011/09/17 11:43:32
- *  import: 
- *  input:  
- *  output: 
- *  description: 
+/**
+ * A simple description for this script
+ *
+ * PHP Version 5.2.0 or Upper version
+ *
+ * @package    charinavi
+ * @author     dj_satoru <http://djlab.sakura.ne.jp/>
+ * @copyright  2011 dj_satoru
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU GPL v2
+ *
  */
+include_once(XOOPS_ROOT_PATH."/modules/charinavi/class/imagemanager.class.php");
 
 
 /**
@@ -133,6 +137,25 @@ function occurError($code, $msg){
 function getErrorMsg($num){  //エラーメッセージの出力
 	$msg = constant("_MD_CHARINAVI_ERROR_MSG_".$num);
 	return "("._MD_CHARINAVI_ERRORNUM."&rarr;".$num.')<br />'.$msg;
+}
+
+/**
+ * 画像をアップロードする
+ * @param string $name name属性に与えられた名前
+ * @return int アップロードされた画像のID
+ */
+function uploadPicture($name){
+	global $_FILES;
+	$im = new ImageManager();
+	if(is_uploaded_file($_FILES[$name]["tmp_name"]) && $im->isImageType($_FILES[$name]["type"])){
+		$img = file_get_contents($_FILES[$name]["tmp_name"]);
+		$myts =& MyTextSanitizer::getInstance();
+		$imgtype = $myts->makeTboxData4Save($_FILES[$name]["type"]);
+		$picture_id = $im->insert($img, $imgtype);
+	}else{
+		$picture_id = false;
+	}
+	return $picture_id;
 }
 
 //==== デバッグ用の関数 ====

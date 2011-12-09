@@ -56,37 +56,37 @@ function printListCategory(){
 #fdescription, #fstatutory{ height:200px; width:400px; }
 </style>
 
-<form method="POST" action="confirmRegisterVolunteer.php">
+<form enctype="multipart/form-data" method="POST" action="confirmRegisterVolunteer.php">
 <table class="tablecloth">
-<tr><th>�ܥ��ƥ�������̾</th><td><input type="text" id="fname" name="name" value="" /></td></tr>
-<tr><th>�ܥ��ƥ�������̾(�դ꤬��)</th><td><input type="text" id="fname_yomi" name="name_yomi" value="" /></td></tr>
-<tr><th>ˡ�ͼ���</th><td><select id="fpersonality" name="personality"><?php printListPersonality(); ?></select></td></tr>
-<tr><th>���������ѤΥ��������̾</th><td><input type="text" id="funame" name="uname" value="" /></td></tr>
-<tr><th>�ѥ����</th><td><input type="password" id="fpassword1" name="password1" value="" /></td></tr>
-<tr><th>�ѥ����(��ǧ��)</th><td><input type="password" id="fpassword2" name="password2" value="" /></td></tr>
-<tr><th>͹���ֹ�</th><td><input type="text" id="fpost1" name="post1" value="" /> - <input type="text" id="fpost2" name="post2" value="" /></td></tr>
-<tr><th>��ƻ�ܸ�</th><td><select id="fprefecture" name="prefecture" onchange="showMunicipalities(this[this.selectedIndex].value);"><?php printListPrefecture(); ?></select></td></tr>
-<tr><th>�Զ�Į¼</th><td><select id="fmunicipality" name="municipality"></select></td></tr>
-<tr><th>�Զ�Į¼�ʹߤν���</th><td><input type="text" id="faddress" name="address" value="" /></td></tr>
-<tr><th>��ɽ�Ի�̾</th><td><input type="text" id="fopen_name" name="open_name" value="" /></td></tr>
-<tr><th>������Ϣ����������ֹ�</th><td><input type="text" id="fopen_phone1" name="open_phone1" value="" /> - <input type="text" id="fopen_phone2" name="open_phone2" value="" /> - <input type="text" id="fopen_phone3" name="open_phone3" value="" /></td></tr>
-<tr><th>������Ϣ�����FAX�ֹ�</th><td><input type="text" id="fopen_fax1" name="open_fax1" value="" /> - <input type="text" id="fopen_fax2" name="open_fax2" value="" /> - <input type="text" id="fopen_fax3" name="open_fax3" value="" /></td></tr>
-<tr><th>������Ϣ����Υ᡼�륢�ɥ쥹</th><td><input type="text" id="fopen_mail" name="open_mail" value="" /></td></tr>
-<tr><th>Charity Japan�Ȥ�Ϣ���б��Ի�̾ (�����)</th><td><input type="text" id="fclose_name" name="close_name" value="" /></td></tr>
-<tr><th>Charity Japan�Ȥ�Ϣ���б��������ֹ�</th><td><input type="text" id="fclose_phone1" name="close_phone1" value="" /> - <input type="text" id="fclose_phone2" name="close_phone2" value="" /> - <input type="text" id="fclose_phone3" name="close_phone3" value="" /></td></tr>
-<tr><th>Charity Japan�Ȥ�Ϣ���б���FAX�ֹ�</th><td><input type="text" id="fclose_fax1" name="close_fax1" value="" /> - <input type="text" id="fclose_fax2" name="close_fax2" value="" /> - <input type="text" id="fclose_fax3" name="close_fax3" value="" /></td></tr>
-<tr><th>Charity Japan�Ȥ�Ϣ���б��ԥ᡼�륢�ɥ쥹</th><td><input type="text" id="fclose_mail" name="close_mail" value="" /></td></tr>
-<tr><th>�����åտͿ�</th><td><input type="text" id="fnum_staffs" name="num_staffs" value="" /></td></tr>
-<tr><th>�ܥ��ƥ����Ϳ�</th><td><input type="text" id="fnum_volunteers" name="num_volunteers" value="" /></td></tr>
-<tr><th>���ΤΥ�������</th><td><input type="file" id="flogo" name="logo" /></td></tr>
-<tr><th>���Τθ���������URL</th><td><input type="text" id="fhomepage" name="homepage" value="" /></td></tr>
-<tr><th>���ΤΥ֥���URL</th><td><input type="text" id="fblog" name="blog" value="" /></td></tr>
-<tr><th>���Τ�FacebookURL</th><td><input type="text" id="ffacebook" name="facebook" value="" /></td></tr>
-<tr><th>���γ�ư����</th><td><textarea id="fdescription" name="description"></textarea></td></tr>
-<tr><th>�괾����§�ξ���</th><td><textarea id="fstatutory" name="statutory"></textarea></td></tr>
-<tr><th>���ƥ���</th><td><select id="fcategory" name="category"><?php printListCategory(); ?></select></td></tr>
+<tr><th>ボランティア団体名</th><td><input type="text" id="fname" name="name" value="" /></td></tr>
+<tr><th>ボランティア団体名(ふりがな)</th><td><input type="text" id="fname_yomi" name="name_yomi" value="" /></td></tr>
+<tr><th>法人種類</th><td><select id="fpersonality" name="personality"><?php printListPersonality(); ?></select></td></tr>
+<tr><th>ログイン用のアカウント名</th><td><input type="text" id="funame" name="uname" value="" /></td></tr>
+<tr><th>パスワード</th><td><input type="password" id="fpassword1" name="password1" value="" /></td></tr>
+<tr><th>パスワード(確認用)</th><td><input type="password" id="fpassword2" name="password2" value="" /></td></tr>
+<tr><th>郵便番号</th><td><input type="text" id="fpost1" name="post1" value="" /> - <input type="text" id="fpost2" name="post2" value="" /></td></tr>
+<tr><th>都道府県</th><td><select id="fprefecture" name="prefecture" onchange="showMunicipalities(this[this.selectedIndex].value);"><?php printListPrefecture(); ?></select></td></tr>
+<tr><th>市区町村</th><td><select id="fmunicipality" name="municipality"></select></td></tr>
+<tr><th>市区町村以降の住所</th><td><input type="text" id="faddress" name="address" value="" /></td></tr>
+<tr><th>代表者氏名</th><td><input type="text" id="fopen_name" name="open_name" value="" /></td></tr>
+<tr><th>公開用連絡先の電話番号</th><td><input type="text" id="fopen_phone1" name="open_phone1" value="" /> - <input type="text" id="fopen_phone2" name="open_phone2" value="" /> - <input type="text" id="fopen_phone3" name="open_phone3" value="" /></td></tr>
+<tr><th>公開用連絡先のFAX番号</th><td><input type="text" id="fopen_fax1" name="open_fax1" value="" /> - <input type="text" id="fopen_fax2" name="open_fax2" value="" /> - <input type="text" id="fopen_fax3" name="open_fax3" value="" /></td></tr>
+<tr><th>公開用連絡先のメールアドレス</th><td><input type="text" id="fopen_mail" name="open_mail" value="" /></td></tr>
+<tr><th>Charity Japanとの連絡対応者氏名 (非公開)</th><td><input type="text" id="fclose_name" name="close_name" value="" /></td></tr>
+<tr><th>Charity Japanとの連絡対応者電話番号</th><td><input type="text" id="fclose_phone1" name="close_phone1" value="" /> - <input type="text" id="fclose_phone2" name="close_phone2" value="" /> - <input type="text" id="fclose_phone3" name="close_phone3" value="" /></td></tr>
+<tr><th>Charity Japanとの連絡対応者FAX番号</th><td><input type="text" id="fclose_fax1" name="close_fax1" value="" /> - <input type="text" id="fclose_fax2" name="close_fax2" value="" /> - <input type="text" id="fclose_fax3" name="close_fax3" value="" /></td></tr>
+<tr><th>Charity Japanとの連絡対応者メールアドレス</th><td><input type="text" id="fclose_mail" name="close_mail" value="" /></td></tr>
+<tr><th>スタッフ人数</th><td><input type="text" id="fnum_staffs" name="num_staffs" value="" /></td></tr>
+<tr><th>ボランティア人数</th><td><input type="text" id="fnum_volunteers" name="num_volunteers" value="" /></td></tr>
+<tr><th>団体のロゴ画像</th><td><input type="file" id="flogo" name="logo" /></td></tr>
+<tr><th>団体の公式サイトURL</th><td><input type="text" id="fhomepage" name="homepage" value="" /></td></tr>
+<tr><th>団体のブログURL</th><td><input type="text" id="fblog" name="blog" value="" /></td></tr>
+<tr><th>団体のFacebookURL</th><td><input type="text" id="ffacebook" name="facebook" value="" /></td></tr>
+<tr><th>過去の活動実績</th><td><textarea id="fdescription" name="description"></textarea></td></tr>
+<tr><th>定款・会則の情報</th><td><textarea id="fstatutory" name="statutory"></textarea></td></tr>
+<tr><th>カテゴリ</th><td><select id="fcategory" name="category"><?php printListCategory(); ?></select></td></tr>
 </table>
-<input type="submit" name="submit" value="��ǧ�ڡ�����" />
+<input type="submit" name="submit" value="確認ページへ" />
 </form>
 
 <script type="text/javascript">
