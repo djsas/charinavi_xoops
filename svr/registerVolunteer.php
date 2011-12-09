@@ -34,7 +34,7 @@ $close_fax = $myts->makeTboxData4Save($_POST["close_fax"]);
 $close_mail = $myts->makeTboxData4Save($_POST["close_mail"]);
 $num_staffs = intval($_POST["num_staffs"]);
 $num_volunteers = intval($_POST["num_volunteers"]);
-//memo: ここでロゴを保存可能にする
+$logo_id = intval($_POST["logo"]);
 $homepage = $myts->makeTboxData4Save($_POST["homepage"]);
 $blog = $myts->makeTboxData4Save($_POST["blog"]);
 $facebook = $myts->makeTboxData4Save($_POST["facebook"]);
@@ -43,8 +43,8 @@ $statutory = $myts->makeTareaData4Save($_POST["statutory"]);
 $category_id = intval($_POST["category_id"]);
 $last_modified = date("Y-m-d H:i:s");
 
-$sql = sprintf("INSERT INTO %s(name, name_yomi, post, prefecture_id, municipality_id, address, homepage, blog, facebook, personality_id, open_name, open_phone, open_fax, open_mail, close_name, close_phone, close_fax, close_mail, num_staffs, num_volunteers, description, statutory, category_id, authorized, last_modified) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 0, '%s');",
-	$xoopsDB->prefix("charinavi_volunteers"), $name, $name_yomi, $post, $prefecture_id, $municipality_id, $address, $homepage, $blog, $facebook, $personality_id, $open_name, $open_phone, $open_fax, $open_mail, $close_name, $close_phone, $close_fax, $close_mail, $num_staffs, $num_volunteers, $description, $statutory, $category_id, $last_modified);
+$sql = sprintf("INSERT INTO %s(name, name_yomi, post, prefecture_id, municipality_id, address, logo_id, homepage, blog, facebook, personality_id, open_name, open_phone, open_fax, open_mail, close_name, close_phone, close_fax, close_mail, num_staffs, num_volunteers, description, statutory, category_id, authorized, last_modified) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 0, '%s');",
+	$xoopsDB->prefix("charinavi_volunteers"), $name, $name_yomi, $post, $prefecture_id, $municipality_id, $address, $logo_id, $homepage, $blog, $facebook, $personality_id, $open_name, $open_phone, $open_fax, $open_mail, $close_name, $close_phone, $close_fax, $close_mail, $num_staffs, $num_volunteers, $description, $statutory, $category_id, $last_modified);
 //$res = $xoopsDB->query($sql);
 
 //== XOOPSアカウントの登録 ==
