@@ -1,6 +1,4 @@
 <?php
-require('../../../mainfile.php');
-
 /**
  * 画像編集クラス
  */

@@ -6,7 +6,7 @@
 //   2011 dj_satoru
 // License: GPL v2 or (at your option) any later version
 //
-// �ܥ��ƥ������Τξ���ɽ���ڡ���
+// ボランティア団体の情報表示ページ
 
 require('../../mainfile.php');
 include(XOOPS_ROOT_PATH.'/header.php');
@@ -48,40 +48,44 @@ function getCategory($id){
 	return "";
 }
 
-
+$flag = false;
 if($_GET["id"]){
 	$sql = sprintf("SELECT * FROM %s WHERE id = %s", $xoopsDB->prefix("charinavi_volunteers"), intval($_GET["id"]));
 	$res = $xoopsDB->query($sql);
 	$myts =& MyTextSanitizer::getInstance();
-	while($row = $xoopsDB->fetchArray($res)){ 
+	while($row = $xoopsDB->fetchArray($res)){
+		$flag = true;
 		if($row["authorized"] == 0){
-			print "���Υܥ��ƥ������ΤϿ�����Ǥ���";
+			print "このボランティア団体は審査中です。";
 		}
 	?>
 
 <table class="tablecloth">
-<tr><th>�ܥ��ƥ�������̾</th><td><?= $myts->makeTboxData4Show($row["name"]); ?></td></tr>
-<tr><th>�ܥ��ƥ�������̾(�դ꤬��)</th><td><?= $myts->makeTboxData4Show($row["name_yomi"]); ?></td></tr>
-<tr><th>ˡ�ͼ���</th><td><?= getPersonality($row["personality_id"]); ?></td></tr>
-<tr><th>͹���ֹ�</th><td><?= $myts->makeTboxData4Show($row["post"]); ?></td></tr>
-<tr><th>��ƻ�ܸ�</th><td><?= getPrefecture($row["prefecture_id"]); ?></td></tr>
-<tr><th>�Զ�Į¼</th><td><?= getMunicipality($row["municipality_id"]); ?></td></tr>
-<tr><th>�Զ�Į¼�ʹߤν���</th><td><?= $myts->makeTboxData4Show($row["address"]); ?></td></tr>
-<tr><th>��ɽ�Ի�̾</th><td><?= $myts->makeTboxData4Show($row["open_name"]); ?></td></tr>
-<tr><th>Ϣ����������ֹ�</th><td><?= $myts->makeTboxData4Show($row["open_phone"]); ?></td></tr>
-<tr><th>Ϣ�����FAX�ֹ�</th><td><?= $myts->makeTboxData4Show($row["open_fax"]); ?></td></tr>
-<tr><th>Ϣ����Υ᡼�륢�ɥ쥹</th><td><?= $myts->makeTboxData4Show($row["open_mail"]); ?></td></tr>
-<tr><th>�����åտͿ�</th><td><?= intval($row["num_staffs"]); ?></td></tr>
-<tr><th>�ܥ��ƥ����Ϳ�</th><td><?= intval($row["num_volunteers"]); ?></td></tr>
-<tr><th>���ΤΥ�������</th><td></td></tr>
-<tr><th>���Τθ���������URL</th><td><?= $myts->makeTboxData4Show($row["homepage"]); ?></td></tr>
-<tr><th>���ΤΥ֥���URL</th><td><?= $myts->makeTboxData4Show($row["blog"]); ?></td></tr>
-<tr><th>���Τ�FacebookURL</th><td><?= $myts->makeTboxData4Show($row["facebook"]); ?></td></tr>
-<tr><th>���γ�ư����</th><td><?= $myts->makeTareaData4Show($row["description"]); ?></td></tr>
-<tr><th>�괾����§�ξ���</th><td><?= $myts->makeTboxData4Show($row["statutory"]); ?></td></tr>
-<tr><th>���ƥ���</th><td><?= getCategory($row["category_id"]); ?></td></tr>
+<tr><th>ボランティア団体名</th><td><?= $myts->makeTboxData4Show($row["name"]); ?></td></tr>
+<tr><th>ボランティア団体名(ふりがな)</th><td><?= $myts->makeTboxData4Show($row["name_yomi"]); ?></td></tr>
+<tr><th>法人種類</th><td><?= getPersonality($row["personality_id"]); ?></td></tr>
+<tr><th>郵便番号</th><td><?= $myts->makeTboxData4Show($row["post"]); ?></td></tr>
+<tr><th>都道府県</th><td><?= getPrefecture($row["prefecture_id"]); ?></td></tr>
+<tr><th>市区町村</th><td><?= getMunicipality($row["municipality_id"]); ?></td></tr>
+<tr><th>市区町村以降の住所</th><td><?= $myts->makeTboxData4Show($row["address"]); ?></td></tr>
+<tr><th>代表者氏名</th><td><?= $myts->makeTboxData4Show($row["open_name"]); ?></td></tr>
+<tr><th>連絡先の電話番号</th><td><?= $myts->makeTboxData4Show($row["open_phone"]); ?></td></tr>
+<tr><th>連絡先のFAX番号</th><td><?= $myts->makeTboxData4Show($row["open_fax"]); ?></td></tr>
+<tr><th>連絡先のメールアドレス</th><td><?= $myts->makeTboxData4Show($row["open_mail"]); ?></td></tr>
+<tr><th>スタッフ人数</th><td><?= intval($row["num_staffs"]); ?></td></tr>
+<tr><th>ボランティア人数</th><td><?= intval($row["num_volunteers"]); ?></td></tr>
+<tr><th>団体のロゴ画像</th><td><img src="images/loadPicture.php?id=<?= intval($row["logo_id"]); ?>&x=80&y=80" /></td></tr>
+<tr><th>団体の公式サイトURL</th><td><?= $myts->makeTboxData4Show($row["homepage"]); ?></td></tr>
+<tr><th>団体のブログURL</th><td><?= $myts->makeTboxData4Show($row["blog"]); ?></td></tr>
+<tr><th>団体のFacebookURL</th><td><?= $myts->makeTboxData4Show($row["facebook"]); ?></td></tr>
+<tr><th>過去の活動実績</th><td><?= $myts->makeTareaData4Show($row["description"]); ?></td></tr>
+<tr><th>定款・会則の情報</th><td><?= $myts->makeTboxData4Show($row["statutory"]); ?></td></tr>
+<tr><th>カテゴリ</th><td><?= getCategory($row["category_id"]); ?></td></tr>
 </table>
 <?php	}
+}
+if(!$flag){
+	redirect_header(XOOPS_URL, 2, "お探しのボランティア団体情報が見つかりません。削除もしくは変更されたか、一時的にご利用できない可能性があります。<br />また、URLを直接入力された場合、入力間違いがないか再度ご確認ください。");
 }
 
 include(XOOPS_ROOT_PATH.'/footer.php');

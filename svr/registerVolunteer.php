@@ -6,7 +6,7 @@
 //   2011 dj_satoru
 // License: GPL v2 or (at your option) any later version
 //
-// ╔э╔И╔С╔ф╔ё╔╒цдбн╓н╬ПйС╓Репо©╓╧╓К
+// Ц┐°Ц┐╘Ц┐ЁЦ┐├Ц┌ёЦ┌╒Е⌡ёД╫⌠Ц│╝Ф┐┘Е═╠Ц┌▓Г≥╩И▄╡Ц│≥Ц┌▀
 
 require('../../../mainfile.php');
 include_once(XOOPS_ROOT_PATH.'/modules/charinavi/include/functions.php');
@@ -43,18 +43,14 @@ $statutory = $myts->makeTareaData4Save($_POST["statutory"]);
 $category_id = intval($_POST["category_id"]);
 $last_modified = date("Y-m-d H:i:s");
 
-$sql = sprintf("INSERT INTO %s(name, name_yomi, post, prefecture_id, municipality_id, address, logo_id, homepage, blog, facebook, personality_id, open_name, open_phone, open_fax, open_mail, close_name, close_phone, close_fax, close_mail, num_staffs, num_volunteers, description, statutory, category_id, authorized, last_modified) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 0, '%s');",
-	$xoopsDB->prefix("charinavi_volunteers"), $name, $name_yomi, $post, $prefecture_id, $municipality_id, $address, $logo_id, $homepage, $blog, $facebook, $personality_id, $open_name, $open_phone, $open_fax, $open_mail, $close_name, $close_phone, $close_fax, $close_mail, $num_staffs, $num_volunteers, $description, $statutory, $category_id, $last_modified);
-//$res = $xoopsDB->query($sql);
-
-//== XOOPS╔╒╔╚╔╕╔С╔х╓непо© ==
+//== XOOPSЦ┌╒Ц┌╚Ц┌╕Ц┐ЁЦ┐┬Ц│╝Г≥╩И▄╡ ==
 $time = time();
 $actkey = substr(md5(uniqid(mt_rand(),1)),0,8);
 $sql = sprintf("INSERT INTO %s(name, uname, email, url, user_avatar, user_regdate, user_icq, user_from, user_sig, user_viewemail, actkey, user_aim, user_yim, user_msnm, pass, posts, attachsig, rank, level, theme, timezone_offset, last_login, umode, uorder, notify_method, notify_mode, user_occ, bio, user_intrest, user_mailok) VALUES('', '%s', '%s', '', 'blank.gif', %s, '', '', '', 0, '%s', '', '', '',  '%s', 0, 0, 0, 0, '', 9.0, 0, 'nest', 0, 1, 0, '', '', '', 0);",
 	$xoopsDB->prefix("users"), $uname, $close_mail, $time, $actkey, md5($password));
 $res = $xoopsDB->query($sql);
 
-//== ╔Ф║╪╔╤ID╓н╪Хфю ==
+//== Ц┐╕Ц┐╪Ц┌╤IDЦ│╝Е▐√Е╬≈ ==
 $sql = sprintf("SELECT * FROM %s WHERE uname = '%s' AND email = '%s' AND user_regdate = %s AND actkey = '%s' AND pass = '%s';",
 	$xoopsDB->prefix("users"), $uname, $close_mail, $time, $actkey, md5($password));
 $res = $xoopsDB->query($sql);
@@ -64,10 +60,17 @@ $uid = $row["uid"];
 $sql = sprintf("INSERT INTO %s(groupid, uid) VALUES(%s, %s);", $xoopsDB->prefix("groups_users_link"), getVolunteerGroupId(), $uid);
 $res = $xoopsDB->query($sql);
 
-//== ╬╣г╖╔А║╪╔К╓РаВ╓К ==
-$subject = $uname."╓╣╓С╓нг╖╬з╔╜║╪╓г╓╧";
-$url = sprintf("http://charity-japan.com/develtest/xoops218/user.php?op=actv&uid=%s&actkey=%s", $uid, $actkey);
-$message = sprintf("%s╓╣╓С║╒╓Ё╓С╓к╓а╓о\n\nXOOPS Cube Site╓к╓╙╓╠╓К╔Ф║╪╔╤епо©мя╔А║╪╔К╔╒╔и╔Л╔╧╓х╓╥╓ф╓╒╓й╓©╓н╔А║╪╔К╔╒╔и╔Л╔╧║й%s║к╓╛╩хмя╓╣╓Л╓ч╓╥╓©║ё╓Б╓╥XOOPS Cube Site╓г╓н╔Ф║╪╔╤епо©╓кЁп╓╗╓╛╓й╓╓╬Л╧Г╓о╓Ё╓н╔А║╪╔К╓Ргк╢Ч╓╥╓ф╓╞╓ю╓╣╓╓║ё\n\nXOOPS Cube Site╓г╓н╔Ф║╪╔╤епо©╓Р╢╟н╩╓╧╓К╓к╓о╡╪╣╜╓н╔Й╔С╔╞╓Р╔╞╔Й╔ц╔╞╓╥╓фепо©╓н╬╣г╖╓Р╧т╓ц╓ф╓╞╓ю╓╣╓╓║ё\n\n%s\n", $uname, $close_mail, $url);
+//== Ц┐°Ц┐╘Ц┐ЁЦ┐├Ц┌ёЦ┌╒Е⌡ёД╫⌠Ф┐┘Е═╠Ц│╝Г≥╩И▄╡ ==
+$sql = sprintf("INSERT INTO %s(uid, name, name_yomi, post, prefecture_id, municipality_id, address, logo_id, homepage, blog, facebook, personality_id, open_name, open_phone, open_fax, open_mail, close_name, close_phone, close_fax, close_mail, num_staffs, num_volunteers, description, statutory, category_id, authorized, last_modified) VALUES(%s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s, 0, '%s');",
+	$xoopsDB->prefix("charinavi_volunteers"), $uid, $name, $name_yomi, $post, $prefecture_id, $municipality_id, $address, $logo_id, $homepage, $blog, $facebook, $personality_id, $open_name, $open_phone, $open_fax, $open_mail, $close_name, $close_phone, $close_fax, $close_mail, $num_staffs, $num_volunteers, $description, $statutory, $category_id, $last_modified);
+$res = $xoopsDB->query($sql);
+print $sql;
+
+
+//== Ф┴©Х╙█Ц┐║Ц┐╪Ц┐╚Ц┌▓И─│Ц┌▀ ==
+$subject = $uname."Ц│∙Ц┌⌠Ц│╝Х╙█Х╗╪Ц┌╜Ц┐╪Ц│╖Ц│≥";
+$url = sprintf(XOOPS_URL."/user.php?op=actv&uid=%s&actkey=%s", $uid, $actkey);
+$message = sprintf("%sЦ│∙Ц┌⌠Ц─│Ц│⌠Ц┌⌠Ц│╚Ц│║Ц│╞\n\nXOOPS Cube SiteЦ│╚Ц│┼Ц│▒Ц┌▀Ц┐╕Ц┐╪Ц┌╤Г≥╩И▄╡Г■╗Ц┐║Ц┐╪Ц┐╚Ц┌╒Ц┐┴Ц┐╛Ц┌╧Ц│╗Ц│≈Ц│╕Ц│┌Ц│╙Ц│÷Ц│╝Ц┐║Ц┐╪Ц┐╚Ц┌╒Ц┐┴Ц┐╛Ц┌╧О╪┬%sО╪┴Ц│▄Д╫©Г■╗Ц│∙Ц┌▄Ц│╬Ц│≈Ц│÷Ц─┌Ц┌┌Ц│≈XOOPS Cube SiteЦ│╖Ц│╝Ц┐╕Ц┐╪Ц┌╤Г≥╩И▄╡Ц│╚Х╕ Ц│┬Ц│▄Ц│╙Ц│└Е═╢Е░┬Ц│╞Ц│⌠Ц│╝Ц┐║Ц┐╪Ц┐╚Ц┌▓Г═╢Фё└Ц│≈Ц│╕Ц│▐Ц│═Ц│∙Ц│└Ц─┌\n\nXOOPS Cube SiteЦ│╖Ц│╝Ц┐╕Ц┐╪Ц┌╤Г≥╩И▄╡Ц┌▓Е╝▄Д╨├Ц│≥Ц┌▀Ц│╚Ц│╞Д╦▀Х╗≤Ц│╝Ц┐╙Ц┐ЁЦ┌╞Ц┌▓Ц┌╞Ц┐╙Ц┐┐Ц┌╞Ц│≈Ц│╕Г≥╩И▄╡Ц│╝Ф┴©Х╙█Ц┌▓Х║▄Ц│ёЦ│╕Ц│▐Ц│═Ц│∙Ц│└Ц─┌\n\n%s\n", $uname, $close_mail, $url);
 
 $xoopsMailer =& getMailer();
 $xoopsMailer->useMail();
@@ -78,5 +81,5 @@ $xoopsMailer->setSubject($subject);
 $xoopsMailer->setBody($message);
 $xoopsMailer->send();
 
-redirect_header(XOOPS_URL, 2, "╔Ф║╪╔╤епо©╓н╓©╓А╓нЁнг╖╔А║╪╔К╓РаВ╓Й╓ч╓╥╓©║ё╔А║╪╔К╓РЁнг╖╓╥╓ф║╒╔Ф║╪╔╤епо©╓Р╢╟н╩╓╣╓╩╓ф╓╞╓ю╓╣╓╓║ё");
+redirect_header(XOOPS_URL, 2, "Ц┐╕Ц┐╪Ц┌╤Г≥╩И▄╡Ц│╝Ц│÷Ц┌│Ц│╝Г╒╨Х╙█Ц┐║Ц┐╪Ц┐╚Ц┌▓И─│Ц┌┼Ц│╬Ц│≈Ц│÷Ц─┌Ц┐║Ц┐╪Ц┐╚Ц┌▓Г╒╨Х╙█Ц│≈Ц│╕Ц─│Ц┐╕Ц┐╪Ц┌╤Г≥╩И▄╡Ц┌▓Е╝▄Д╨├Ц│∙Ц│⌡Ц│╕Ц│▐Ц│═Ц│∙Ц│└Ц─┌");
 // S.D.G.
