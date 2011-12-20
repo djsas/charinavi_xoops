@@ -15,6 +15,7 @@ $modversion['help'] = "help.html";
 $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = 0;
 $modversion['image'] = "logo.png";
+$modversion['nice_image']  = 'images/charinavi_icon.png';
 
 $modversion['hasMain'] = 1;
 
@@ -58,6 +59,11 @@ $modversion['blocks'][4]['name'] = _MI_CHARINAVI_BLOCK_AVATAR_TITLE;
 $modversion['blocks'][4]['description'] = _MI_CHARINAVI_BLOCK_AVATAR_DESCRIPTION;
 $modversion['blocks'][4]['show_func'] = "b_charinavi_avatar_show";
 $modversion['blocks'][4]['template'] =  'charinavi_block_avatar.html';
+$modversion['blocks'][5]['file'] = 'charinavi_login.php';
+$modversion['blocks'][5]['name'] = _MI_CHARINAVI_BLOCK_LOGIN_TITLE;
+$modversion['blocks'][5]['description'] = _MI_CHARINAVI_BLOCK_LOGIN_DESCRIPTION;
+$modversion['blocks'][5]['show_func'] = "b_charinavi_login_show";
+$modversion['blocks'][5]['template'] =  'charinavi_block_login.html';
 
 
 // Sql file

@@ -1,0 +1,16 @@
+<{if $block.is_login == 0}>
+<form action="<{$xoops_url}>/user.php" method="post" style="margin-top: 0px;">
+    ユーザー名:<br>
+    <input name="uname" id="legacy_xoopsform_block_uname" size="12" maxlength="25" value="" type="text"><br>
+    パスワード:<br>
+    <input name="pass" id="legacy_xoopsform_block_pass" size="12" maxlength="32" type="password"><br>
+        <input name="xoops_redirect" id="legacy_xoopsform_xoops_redirect" value="<{$xoops_requesturi}>" type="hidden">
+
+        <input name="op" id="legacy_xoopsform_block_op" value="login" type="hidden">
+    <input name="submit" id="legacy_xoopsform_block_submit" value="ログイン" type="submit"><br>
+</form>
+<a href="<{$xoops_url}>/lostpass.php">パスワード紛失</a>
+<br><br>
+  <a href="<{$xoops_url}>/register.php">新規登録(一般ユーザ)</a><br />
+  <a href="<{$xoops_url}>/modules/charinavi/registerVolunteer.php">新規登録(ボランティア団体)</a>
+<{/if}>
