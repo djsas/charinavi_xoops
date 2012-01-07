@@ -51,7 +51,17 @@ while($row = $xoopsDB->fetchArray($res)){
 <form id="addactivity_form" method="POST" action="svr/addedactivity.php">
 <table>
 <tr><th><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYTITLE; ?></th><td><input type="text" id="addactivity_form_title" name="title" value="" /></td></tr>
+<tr><th>都道府県</th><td></td></tr>
+<tr><th>市区町村</th><td></td></tr>
+<tr><th>市区町村以降の住所</th><td></td></tr>
 <tr><th><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYDESCRIPTION; ?></th><td><input type="text" id="addactivity_form_description" name="description" id="addactivity_form_category" value="" /></td></tr>
+<tr><th>活動動画のURL</th><td></td></tr>
+<tr><th>活動担当者の氏名</th><td></td></tr>
+<tr><th>連絡先の電話番号</th><td></td></tr>
+<tr><th>連絡先のFAX番号</th><td></td></tr>
+<tr><th>連絡先のメールアドレス</th><td></td></tr>
+<tr><th>活動時期</th><td></td></tr>
+<tr><th>活動頻度</th><td></td></tr>
 <tr><th><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYCATEGORY; ?></th><td><select name="category" id="addactivity_form_category"><?php
 $sql = sprintf("SELECT * FROM %s ORDER BY rank", $xoopsDB->prefix("charinavi_categories"));
 $res = $xoopsDB->query($sql);
@@ -62,6 +72,10 @@ while($row = $xoopsDB->fetchArray($res)){
 }
 ?></select></td></tr>
 <tr><th><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ACTIVITYTAGS; ?></th><td><input type="text" id="addactivity_form_tags" name="tags" value="" /></td></tr>
+
+<tr><th>スタッフ募集の有無</th><td></td></tr>
+<tr><th>スタッフ募集の人数</th><td></td></tr>
+
 </table>
 <input type="hidden" id="addactivity_form_id" name="id" value="" />
 </form>

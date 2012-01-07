@@ -58,6 +58,27 @@ class PersonalManager{
 		return $this->picture_id;
 	}
 	/**
+	 * 管理者グループに属しているか否かを返します。
+	 * @return bool 管理者グループに属すならtrue、そうでなければfalse
+	 */
+	public function isAdmin(){
+		global $xoopsDB;
+	
+		//管理者グループのグループIDを取得する
+		$sql = "SELECT * FROM ".$xoopsDB->prefix("groups")." WHERE name = 'Admin';";
+		$res = $xoopsDB->query($sql);
+		$row = $xoopsDB->fetchArray($res);
+		$gid = $row["groupid"];
+	
+		//管理者グループに所属しているか確認する
+		$sql = "SELECT * FROM ".$xoopsDB->prefix("groups_users_link")." WHERE groupid = ".$gid." AND uid = ".$uid.";";
+		$res = $xoopsDB->query($sql);
+		while($row = $xoopsDB->fetchArray($res)){
+			return true;
+		}
+		return false;
+	}
+	/**
 	 * ログインしているか否かを返します．
 	 * @return bool ログインしていればtrue，していなければfalseを返します．
 	 */

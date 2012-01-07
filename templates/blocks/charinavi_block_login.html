@@ -13,4 +13,9 @@
 <br><br>
   <a href="<{$xoops_url}>/register.php">新規登録(一般ユーザ)</a><br />
   <a href="<{$xoops_url}>/modules/charinavi/registerVolunteer.php">新規登録(ボランティア団体)</a>
+<{else}>
+	<{if $block.is_admin == 1}>
+	<a href="<{$xoops_url}>/admin.php">管理者メニュー</a><br />
+	<{/if}>
+	<a href="<{$xoops_url}>/user.php?op=logout">ログアウト</a>
 <{/if}>

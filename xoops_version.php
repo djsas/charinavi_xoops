@@ -8,7 +8,7 @@ $modversion['dirname'] = "charinavi";
 
 
 $modversion['description'] = $modversion['name'];
-$modversion['version'] = "0.1";
+$modversion['version'] = "0.1.0";
 $modversion['credits'] = "";
 $modversion['author'] = 'djsas';
 $modversion['help'] = "help.html";
