@@ -64,6 +64,11 @@ $modversion['blocks'][5]['name'] = _MI_CHARINAVI_BLOCK_LOGIN_TITLE;
 $modversion['blocks'][5]['description'] = _MI_CHARINAVI_BLOCK_LOGIN_DESCRIPTION;
 $modversion['blocks'][5]['show_func'] = "b_charinavi_login_show";
 $modversion['blocks'][5]['template'] =  'charinavi_block_login.html';
+$modversion['blocks'][6]['file'] = 'charinavi_new_volunteers.php';
+$modversion['blocks'][6]['name'] = _MI_CHARINAVI_BLOCK_NEW_VOLUNTEERS_TITLE;
+$modversion['blocks'][6]['description'] = _MI_CHARINAVI_BLOCK_NEW_VOLUNTEERS_DESCRIPTION;
+$modversion['blocks'][6]['show_func'] = "b_charinavi_new_volunteers_show";
+$modversion['blocks'][6]['template'] =  'charinavi_block_new_volunteers.html';
 
 
 // Sql file
