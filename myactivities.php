@@ -44,7 +44,7 @@ while($row = $xoopsDB->fetchArray($res)){
 }
 ?>
 </table>
-<a href="javascript:showAddActivityForm();"><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ADD; ?>&gt;&gt;</a>
+<a href="registerActivity.php"><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ADD; ?>&gt;&gt;</a>
 
 <div id="pwc_addactivity_form" style="display:none;">
 <h2><?= _MD_CHARINAVI_MYACTIVITIES_LABEL_ADDACTIVITY; ?></h2>

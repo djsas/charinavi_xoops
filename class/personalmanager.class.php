@@ -71,7 +71,7 @@ class PersonalManager{
 		$gid = $row["groupid"];
 	
 		//管理者グループに所属しているか確認する
-		$sql = "SELECT * FROM ".$xoopsDB->prefix("groups_users_link")." WHERE groupid = ".$gid." AND uid = ".$uid.";";
+		$sql = "SELECT * FROM ".$xoopsDB->prefix("groups_users_link")." WHERE groupid = ".$gid." AND uid = ".$this->uid.";";
 		$res = $xoopsDB->query($sql);
 		while($row = $xoopsDB->fetchArray($res)){
 			return true;
